@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 TELEGRAM_TOKEN = "8928782534:AAF4LVamJjVG67RItKSzZcRCXOeSPi9jr1A"   
 TELEGRAM_CHAT_ID = "6127963507"  
 STATE_FILE = "ksp_state.json"
-KSP_URL = "https://ksp.co.il/web/cat/pokemon"
+KSP_URL = "https://ksp.co.il/web/cat/3604..31982..32394?sort=3"
 
 HEADERS = {
     "User-Agent": (
