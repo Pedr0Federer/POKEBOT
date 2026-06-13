@@ -2,8 +2,9 @@ name: KSP Pokemon Bot Service
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # יריץ את הבוט אוטומטית כל 15 דקות
-  workflow_dispatch: # מאפשר לך גם להפעיל את הסורק ידנית בלחיצת כפתור
+    - cron: '0 * * * *'       # ירוץ בוודאות בכל שעה עגולה (דקה 00)
+    - cron: '15,30,45 * * * *' # ירוץ בשאר רבעי השעה
+  workflow_dispatch:          # מאפשר לך להפעיל ידנית מתי שבא לך
 
 jobs:
   run-bot:
