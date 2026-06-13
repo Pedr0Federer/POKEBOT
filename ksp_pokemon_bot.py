@@ -1,4 +1,4 @@
-import requests
+from curl_cffi import requests  # ספרייה מתקדמת לעקיפת חסימות
 import json
 import os
 from bs4 import BeautifulSoup
@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 TELEGRAM_TOKEN = "8928782534:AAF4LVamJjVG67RItKSzZcRCXOeSPi9jr1A"   
 TELEGRAM_CHAT_ID = "6127963507"  
 STATE_FILE = "ksp_state.json"
-KSP_URL = "https://ksp.co.il/web/cat/3604..31982..32394?sort=3"
+KSP_URL = "https://ksp.co.il/web/cat/pokemon"
 
 HEADERS = {
     "User-Agent": (
@@ -36,7 +36,8 @@ def send_telegram(message: str):
 
 def get_product_count() -> tuple[int, list[str]]:
     try:
-        resp = requests.get(KSP_URL, headers=HEADERS, timeout=15)
+        # כאן הוספנו impersonate="chrome" שמחקה דפדפן אמיתי ב-100%
+        resp = requests.get(KSP_URL, headers=HEADERS, timeout=15, impersonate="chrome")
         resp.raise_for_status()
     except Exception as e:
         print(f"[KSP] שגיאה בגישה לאתר: {e}")
@@ -73,7 +74,7 @@ def save_state(state: dict):
         json.dump(state, f, ensure_ascii=False, indent=2)
 
 def main():
-    print("🤖 מתחיל סריקת KSP חד-פעמית...")
+    print("🤖 מתחיל סריקת KSP חד-פעמית ומאובטחת...")
     state = load_state()
     count, names = get_product_count()
 
@@ -85,7 +86,6 @@ def main():
     last = state.get("last_count")
 
     if last is None:
-        # הרצה ראשונית בענן
         msg = (
             f"📦 <b>KSP Pokemon — סנכרון ראשוני בענן</b>\n"
             f"נמצאו <b>{count}</b> מוצרים בקטלוג."
