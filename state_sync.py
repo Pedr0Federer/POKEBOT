@@ -11,10 +11,15 @@ Local detection/alerting must never be blocked by a network or git problem.
 
 import logging
 import subprocess
+import sys
 import time
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent
+
+# Prevent a visible console window from flashing on each git call when running
+# under pythonw.exe on Windows.
+_CREATIONFLAGS = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
 
 # Full checks (the only thing that touches state.json) happen at most every
 # few seconds during a burst of stock changes; there's no need to push a
@@ -31,6 +36,7 @@ def _run(args: list[str]) -> subprocess.CompletedProcess:
         capture_output=True,
         text=True,
         timeout=30,
+        creationflags=_CREATIONFLAGS,
     )
 
 
