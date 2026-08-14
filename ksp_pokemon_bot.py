@@ -1,115 +1,74 @@
-from curl_cffi import requests  # ספרייה מתקדמת לעקיפת חסימות
+"""Cloud fallback entrypoint, run on a schedule by
+.github/workflows/ksp_bot.yml.
+
+The local desktop poller (ksp_monitor_loop.py) is the primary scanner --
+it's zero-latency whenever the PC is on. This script only takes over when
+that poller looks inactive, so a restock still gets caught (just with cron
+latency instead of near-instant) whenever the PC is off.
+
+Freshness is judged from state.json's `last_checked` timestamp, which the
+local poller pushes to this repo as a heartbeat after every full check (see
+state_sync.py). If that heartbeat is recent, the local poller is presumed
+alive and this run exits without scanning or alerting, to avoid sending the
+same Telegram alert twice.
+"""
+
 import json
+import logging
 import os
-from bs4 import BeautifulSoup
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
 
-# ==============================
-# הגדרות - הפרטים שלך כבר בפנים
-# ==============================
-TELEGRAM_TOKEN = "8928782534:AAF4LVamJjVG67RItKSzZcRCXOeSPi9jr1A"   
-TELEGRAM_CHAT_ID = "6127963507"  
-STATE_FILE = "ksp_state.json"
-KSP_URL = "https://ksp.co.il/web/cat/3604..31982..32394?sort=3"
+import ksp_monitor
+import state
 
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/124.0.0.0 Safari/537.36"
-    ),
-    "Accept-Language": "he-IL,he;q=0.9,en-US;q=0.8",
-}
+BASE_DIR = Path(__file__).parent
+CLOUD_CONFIG_PATH = BASE_DIR / "cloud_config.json"
 
-def send_telegram(message: str):
-    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
-    payload = {
-        "chat_id": TELEGRAM_CHAT_ID,
-        "text": message,
-        "parse_mode": "HTML",
-    }
+# Local's own reconciliation cadence tops out around 5 minutes; this must
+# comfortably exceed that so a normal local cycle is never mistaken for an
+# offline PC, while staying under the 15-minute cloud cron interval.
+LOCAL_STALE_THRESHOLD_SECONDS = 12 * 60
+
+
+def load_cloud_config() -> dict:
+    with open(CLOUD_CONFIG_PATH, encoding="utf-8") as f:
+        config = json.load(f)
+    config["telegram_bot_token"] = os.environ["TELEGRAM_BOT_TOKEN"]
+    config["telegram_chat_id"] = os.environ["TELEGRAM_CHAT_ID"]
+    config["windows_toast_enabled"] = False
+    return config
+
+
+def local_poller_is_active(log: logging.Logger) -> bool:
+    last_checked = state.load_state().get("last_checked")
+    if not last_checked:
+        return False
     try:
-        resp = requests.post(url, json=payload, timeout=10)
-        resp.raise_for_status()
-        print(f"[Telegram] הודעה נשלחה: {message}")
-    except Exception as e:
-        print(f"[Telegram] שגיאה בשליחה: {e}")
-
-def get_product_count() -> tuple[int, list[str]]:
-    try:
-        # כאן הוספנו impersonate="chrome" שמחקה דפדפן אמיתי ב-100%
-        resp = requests.get(KSP_URL, headers=HEADERS, timeout=15, impersonate="chrome")
-        resp.raise_for_status()
-    except Exception as e:
-        print(f"[KSP] שגיאה בגישה לאתר: {e}")
-        return -1, []
-
-    soup = BeautifulSoup(resp.text, "html.parser")
-    count_el = (
-        soup.find(class_="cat-total-items")
-        or soup.find(class_="total-items")
-        or soup.find("span", string=lambda t: t and "מוצר" in t)
+        last_dt = datetime.fromisoformat(last_checked)
+    except ValueError:
+        return False
+    if last_dt.tzinfo is None:
+        last_dt = last_dt.replace(tzinfo=timezone.utc)
+    age_seconds = (datetime.now(timezone.utc) - last_dt).total_seconds()
+    log.info(
+        "Local heartbeat age: %.0fs (stale threshold=%ds)",
+        age_seconds,
+        LOCAL_STALE_THRESHOLD_SECONDS,
     )
+    return age_seconds < LOCAL_STALE_THRESHOLD_SECONDS
 
-    if count_el:
-        text = count_el.get_text(strip=True)
-        digits = "".join(filter(str.isdigit, text))
-        count = int(digits) if digits else -1
-    else:
-        count = len(soup.select(".product-item, .item, [class*='product']"))
 
-    names = [
-        el.get_text(strip=True)
-        for el in soup.select(".product-title, .name, h3.title")[:5]
-    ]
-    return count, names
+def main() -> int:
+    log = ksp_monitor.setup_logging()
+    if local_poller_is_active(log):
+        log.info("Local poller heartbeat is recent; skipping cloud check to avoid duplicate alerts.")
+        return 0
+    log.info("Local poller looks inactive; running cloud fallback check.")
+    config = load_cloud_config()
+    return ksp_monitor.run_full_check(config, log)
 
-def load_state() -> dict:
-    if os.path.exists(STATE_FILE):
-        with open(STATE_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {"last_count": None}
-
-def save_state(state: dict):
-    with open(STATE_FILE, "w", encoding="utf-8") as f:
-        json.dump(state, f, ensure_ascii=False, indent=2)
-
-def main():
-    print("🤖 מתחיל סריקת KSP חד-פעמית ומאובטחת...")
-    state = load_state()
-    count, names = get_product_count()
-
-    if count == -1:
-        print("לא הצלחתי לקרוא את מספר המוצרים, הריצה נעצרה.")
-        return
-
-    print(f"מוצרים שנמצאו כעת: {count}")
-    last = state.get("last_count")
-
-    if last is None:
-        msg = (
-            f"📦 <b>KSP Pokemon — סנכרון ראשוני בענן</b>\n"
-            f"נמצאו <b>{count}</b> מוצרים בקטלוג."
-        )
-        send_telegram(msg)
-    elif count != last:
-        diff = count - last
-        emoji = "🆕" if diff > 0 else "🔴"
-        direction = "נוסף" if diff > 0 else "הוסר"
-        sample = "\n• " + "\n• ".join(names) if names else ""
-
-        msg = (
-            f"{emoji} <b>שינוי בקטלוג KSP Pokemon!</b>\n"
-            f"לפני: {last} מוצרים\n"
-            f"עכשיו: <b>{count}</b> מוצרים ({direction} {abs(diff)})\n"
-            f"🔗 {KSP_URL}"
-            f"{sample}"
-        )
-        send_telegram(msg)
-    else:
-        print("אין שינוי במספר המוצרים.")
-
-    state["last_count"] = count
-    save_state(state)
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
