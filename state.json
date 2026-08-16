@@ -57,14 +57,6 @@
       "url": "https://ksp.co.il/web/item/314427",
       "missing_streak": 0
     },
-    "314561": {
-      "uin": 314561,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Twilight Masquerade Booster",
-      "price": 35,
-      "img": "https://ksp.co.il/shop/items/314561.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/314561",
-      "missing_streak": 0
-    },
     "376131": {
       "uin": 376131,
       "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together Booster Pack - עשרה קלפים בחפיסה",
@@ -73,12 +65,12 @@
       "url": "https://ksp.co.il/web/item/376131",
       "missing_streak": 0
     },
-    "485983": {
-      "uin": 485983,
-      "title": "קלפי אספנות פוקימון Luxray - Pokemon TCG ME05: Pitch Black - Premium Checklane",
-      "price": 39,
-      "img": "https://ksp.co.il/shop/items/485983.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/485983",
+    "314561": {
+      "uin": 314561,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Twilight Masquerade Booster",
+      "price": 35,
+      "img": "https://ksp.co.il/shop/items/314561.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/314561",
       "missing_streak": 0
     },
     "474004": {
@@ -87,6 +79,14 @@
       "price": 39,
       "img": "https://ksp.co.il/shop/items/474004.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474004",
+      "missing_streak": 0
+    },
+    "485983": {
+      "uin": 485983,
+      "title": "קלפי אספנות פוקימון Luxray - Pokemon TCG ME05: Pitch Black - Premium Checklane",
+      "price": 39,
+      "img": "https://ksp.co.il/shop/items/485983.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/485983",
       "missing_streak": 0
     },
     "186593": {
@@ -121,14 +121,6 @@
       "url": "https://ksp.co.il/web/item/389515",
       "missing_streak": 0
     },
-    "474083": {
-      "uin": 474083,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising Premium Checklane Blister - פאומוט",
-      "price": 44,
-      "img": "https://ksp.co.il/shop/items/474083.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474083",
-      "missing_streak": 0
-    },
     "459648": {
       "uin": 459648,
       "title": "קלפי אספנות פוקימון Meganium - Pokemon TCG ME03: Perfect Order Premium Checklane",
@@ -137,12 +129,12 @@
       "url": "https://ksp.co.il/web/item/459648",
       "missing_streak": 0
     },
-    "459652": {
-      "uin": 459652,
-      "title": "קלפי אספנות פוקימון Cinderace - Pokemon TCG ME03: Perfect Order Premium Checklane",
+    "474083": {
+      "uin": 474083,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising Premium Checklane Blister - פאומוט",
       "price": 44,
-      "img": "https://ksp.co.il/shop/items/459652.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/459652",
+      "img": "https://ksp.co.il/shop/items/474083.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474083",
       "missing_streak": 0
     },
     "474124": {
@@ -151,6 +143,14 @@
       "price": 44,
       "img": "https://ksp.co.il/shop/items/474124.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474124",
+      "missing_streak": 0
+    },
+    "459652": {
+      "uin": 459652,
+      "title": "קלפי אספנות פוקימון Cinderace - Pokemon TCG ME03: Perfect Order Premium Checklane",
+      "price": 44,
+      "img": "https://ksp.co.il/shop/items/459652.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/459652",
       "missing_streak": 0
     },
     "416670": {
@@ -305,20 +305,20 @@
       "url": "https://ksp.co.il/web/item/485698",
       "missing_streak": 0
     },
-    "472664": {
-      "uin": 472664,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - 3-Pack Blister - צ'רמיליון",
-      "price": 99,
-      "img": "https://ksp.co.il/shop/items/472664.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/472664",
-      "missing_streak": 0
-    },
     "459661": {
       "uin": 459661,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME: Mega Evolution - Enhanced 2-Pack Blister",
       "price": 99,
       "img": "https://ksp.co.il/shop/items/459661.jpg?v=5",
       "url": "https://ksp.co.il/web/item/459661",
+      "missing_streak": 0
+    },
+    "472664": {
+      "uin": 472664,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - 3-Pack Blister - צ'רמיליון",
+      "price": 99,
+      "img": "https://ksp.co.il/shop/items/472664.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/472664",
       "missing_streak": 0
     },
     "446385": {
@@ -385,6 +385,14 @@
       "url": "https://ksp.co.il/web/item/379302",
       "missing_streak": 0
     },
+    "379303": {
+      "uin": 379303,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - ליפיאון",
+      "price": 119,
+      "img": "https://ksp.co.il/shop/items/379303.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/379303",
+      "missing_streak": 0
+    },
     "379306": {
       "uin": 379306,
       "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - סילביאון",
@@ -409,6 +417,14 @@
       "url": "https://ksp.co.il/web/item/474160",
       "missing_streak": 0
     },
+    "474340": {
+      "uin": 474340,
+      "title": "קלפי אספנות פוקימון Mega Lucario ex - Pokemon TCG Mega Evolution: League Battle Deck",
+      "price": 129,
+      "img": "https://ksp.co.il/shop/items/474340.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474340",
+      "missing_streak": 0
+    },
     "474149": {
       "uin": 474149,
       "title": "קלפי אספנות פוקימון Liao Fu Guan (Joltdengo) - Pokemon TCG: 2025 World Championship Deck",
@@ -423,14 +439,6 @@
       "price": 129,
       "img": "https://ksp.co.il/shop/items/474183.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474183",
-      "missing_streak": 0
-    },
-    "474340": {
-      "uin": 474340,
-      "title": "קלפי אספנות פוקימון Mega Lucario ex - Pokemon TCG Mega Evolution: League Battle Deck",
-      "price": 129,
-      "img": "https://ksp.co.il/shop/items/474340.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474340",
       "missing_streak": 0
     },
     "486554": {
@@ -561,6 +569,14 @@
       "url": "https://ksp.co.il/web/item/487832",
       "missing_streak": 0
     },
+    "474552": {
+      "uin": 474552,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection Series 2",
+      "price": 219,
+      "img": "https://ksp.co.il/shop/items/474552.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474552",
+      "missing_streak": 0
+    },
     "453967": {
       "uin": 453967,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection (26Q1)",
@@ -585,20 +601,20 @@
       "url": "https://ksp.co.il/web/item/422113",
       "missing_streak": 0
     },
-    "486638": {
-      "uin": 486638,
-      "title": "קלפי אספנות פוקימון Lucario - Pokemon TCG 30th Celebration: Tech Sticker Collection - צפי משוער לתחילת אספקה - 15.10",
-      "price": 239,
-      "img": "https://ksp.co.il/shop/items/486638.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486638",
-      "missing_streak": 0
-    },
     "486645": {
       "uin": 486645,
       "title": "קלפי אספנות פוקימון Alolan Exeggutor - Pokemon TCG 30th Celebration: Tech Sticker Collection - צפי משוער לתחילת אספקה - 15.10",
       "price": 239,
       "img": "https://ksp.co.il/shop/items/486645.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486645",
+      "missing_streak": 0
+    },
+    "486638": {
+      "uin": 486638,
+      "title": "קלפי אספנות פוקימון Lucario - Pokemon TCG 30th Celebration: Tech Sticker Collection - צפי משוער לתחילת אספקה - 15.10",
+      "price": 239,
+      "img": "https://ksp.co.il/shop/items/486638.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486638",
       "missing_streak": 0
     },
     "486651": {
@@ -969,20 +985,20 @@
       "url": "https://ksp.co.il/web/item/446039",
       "missing_streak": 0
     },
-    "417701": {
-      "uin": 417701,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Inferno X (Japanese) Booster Box - מארז 30 חפיסות",
-      "price": 849,
-      "img": "https://ksp.co.il/shop/items/417701.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/417701",
-      "missing_streak": 0
-    },
     "415839": {
       "uin": 415839,
       "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Prismatic Evolutions - Premium Figure Collection",
       "price": 849,
       "img": "https://ksp.co.il/shop/items/415839.jpg?v=5",
       "url": "https://ksp.co.il/web/item/415839",
+      "missing_streak": 0
+    },
+    "417701": {
+      "uin": 417701,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Inferno X (Japanese) Booster Box - מארז 30 חפיסות",
+      "price": 849,
+      "img": "https://ksp.co.il/shop/items/417701.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/417701",
       "missing_streak": 0
     },
     "464226": {
@@ -1097,20 +1113,20 @@
       "url": "https://ksp.co.il/web/item/424289",
       "missing_streak": 0
     },
-    "395293": {
-      "uin": 395293,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Surging Sparks Booster Box - מארז 36 חפיסות",
-      "price": 1199,
-      "img": "https://ksp.co.il/shop/items/395293.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/395293",
-      "missing_streak": 0
-    },
     "416614": {
       "uin": 416614,
       "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Booster Box",
       "price": 1199,
       "img": "https://ksp.co.il/shop/items/416614.jpg?v=5",
       "url": "https://ksp.co.il/web/item/416614",
+      "missing_streak": 0
+    },
+    "395293": {
+      "uin": 395293,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Surging Sparks Booster Box - מארז 36 חפיסות",
+      "price": 1199,
+      "img": "https://ksp.co.il/shop/items/395293.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/395293",
       "missing_streak": 0
     },
     "398965": {
@@ -1145,12 +1161,12 @@
       "url": "https://ksp.co.il/web/item/474503",
       "missing_streak": 0
     },
-    "380042": {
-      "uin": 380042,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Sword & Shield - Evolving Skies Build and Battle Box",
+    "453969": {
+      "uin": 453969,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection (26Q1) - מארז המכיל 6 First Partner Illustration Collection (קייס סגור)",
       "price": 1299,
-      "img": "https://ksp.co.il/shop/items/380042.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/380042",
+      "img": "https://ksp.co.il/shop/items/453969.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/453969",
       "missing_streak": 0
     },
     "369884": {
@@ -1161,12 +1177,12 @@
       "url": "https://ksp.co.il/web/item/369884",
       "missing_streak": 0
     },
-    "453969": {
-      "uin": 453969,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection (26Q1) - מארז המכיל 6 First Partner Illustration Collection (קייס סגור)",
+    "380042": {
+      "uin": 380042,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Sword & Shield - Evolving Skies Build and Battle Box",
       "price": 1299,
-      "img": "https://ksp.co.il/shop/items/453969.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/453969",
+      "img": "https://ksp.co.il/shop/items/380042.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/380042",
       "missing_streak": 0
     },
     "479458": {
@@ -1633,20 +1649,20 @@
       "url": "https://ksp.co.il/web/item/380960",
       "missing_streak": 0
     },
-    "391271": {
-      "uin": 391271,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Sword & Shield - Brilliant Stars Booster Box Case - מארז 6 קופסאות Brilliant Stars Booster Box (קייס סגור)",
-      "price": 15999,
-      "img": "https://ksp.co.il/shop/items/391271.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/391271",
-      "missing_streak": 0
-    },
     "425660": {
       "uin": 425660,
       "title": "קלפי אספנות פוקימון Pokemon TCG Sun & Moon: Cosmic Eclipse Booster Box - מארז 36 חפיסות",
       "price": 15999,
       "img": "https://ksp.co.il/shop/items/425660.jpg?v=5",
       "url": "https://ksp.co.il/web/item/425660",
+      "missing_streak": 0
+    },
+    "391271": {
+      "uin": 391271,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Sword & Shield - Brilliant Stars Booster Box Case - מארז 6 קופסאות Brilliant Stars Booster Box (קייס סגור)",
+      "price": 15999,
+      "img": "https://ksp.co.il/shop/items/391271.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/391271",
       "missing_streak": 0
     },
     "455909": {
@@ -1679,22 +1695,6 @@
       "price": 62400,
       "img": "https://ksp.co.il/shop/items/395276.jpg?v=5",
       "url": "https://ksp.co.il/web/item/395276",
-      "missing_streak": 0
-    },
-    "379303": {
-      "uin": 379303,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - ליפיאון",
-      "price": 119,
-      "img": "https://ksp.co.il/shop/items/379303.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/379303",
-      "missing_streak": 0
-    },
-    "474552": {
-      "uin": 474552,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection Series 2",
-      "price": 219,
-      "img": "https://ksp.co.il/shop/items/474552.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474552",
       "missing_streak": 0
     }
   },
@@ -1971,5 +1971,5 @@
     "425676": "2026-08-15T12:08:38.622785+00:00",
     "485742": "2026-08-15T19:53:45.170148+00:00"
   },
-  "last_checked": "2026-08-16T07:59:06.748953+00:00"
+  "last_checked": "2026-08-16T08:04:57.427431+00:00"
 }
