@@ -169,20 +169,20 @@
       "url": "https://ksp.co.il/web/item/453891",
       "missing_streak": 0
     },
-    "452559": {
-      "uin": 452559,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME02 Mega Evolution: Phantasmal Flames - Booster Pack - עשרה קלפים בחפיסה",
-      "price": 49,
-      "img": "https://ksp.co.il/shop/items/452559.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/452559",
-      "missing_streak": 0
-    },
     "416650": {
       "uin": 416650,
       "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Checklane Premium Blister - מיאוסקראדה",
       "price": 49,
       "img": "https://ksp.co.il/shop/items/416650.jpg?v=5",
       "url": "https://ksp.co.il/web/item/416650",
+      "missing_streak": 0
+    },
+    "452559": {
+      "uin": 452559,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME02 Mega Evolution: Phantasmal Flames - Booster Pack - עשרה קלפים בחפיסה",
+      "price": 49,
+      "img": "https://ksp.co.il/shop/items/452559.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/452559",
       "missing_streak": 0
     },
     "366646": {
@@ -209,14 +209,6 @@
       "url": "https://ksp.co.il/web/item/384756",
       "missing_streak": 0
     },
-    "449822": {
-      "uin": 449822,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Team Rockets Mewtwo ex League Battle Deck",
-      "price": 69,
-      "img": "https://ksp.co.il/shop/items/449822.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/449822",
-      "missing_streak": 0
-    },
     "395327": {
       "uin": 395327,
       "title": "קלפי אספנות פוקימון Boltund, Eiscue, Galarian Sirfetchd - Pokemon TCG: Knock Out Collection 22Q1",
@@ -231,6 +223,14 @@
       "price": 69,
       "img": "https://ksp.co.il/shop/items/395402.jpg?v=5",
       "url": "https://ksp.co.il/web/item/395402",
+      "missing_streak": 0
+    },
+    "449822": {
+      "uin": 449822,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Team Rockets Mewtwo ex League Battle Deck",
+      "price": 69,
+      "img": "https://ksp.co.il/shop/items/449822.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/449822",
       "missing_streak": 0
     },
     "474215": {
@@ -809,20 +809,20 @@
       "url": "https://ksp.co.il/web/item/474115",
       "missing_streak": 0
     },
-    "486317": {
-      "uin": 486317,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Ruler of the Black Flame - Booster Box (Japanese) - מארז 30 חפיסות",
-      "price": 649,
-      "img": "https://ksp.co.il/shop/items/486317.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486317",
-      "missing_streak": 0
-    },
     "459682": {
       "uin": 459682,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME03: Perfect Order Premium Checklane Case - מארז המכיל 8 Premium Checklane - Meganium ו-8 Premium Checklane - Cinderace (קייס סגור)",
       "price": 649,
       "img": "https://ksp.co.il/shop/items/459682.jpg?v=5",
       "url": "https://ksp.co.il/web/item/459682",
+      "missing_streak": 0
+    },
+    "486317": {
+      "uin": 486317,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Ruler of the Black Flame - Booster Box (Japanese) - מארז 30 חפיסות",
+      "price": 649,
+      "img": "https://ksp.co.il/shop/items/486317.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486317",
       "missing_streak": 0
     },
     "417711": {
@@ -857,20 +857,20 @@
       "url": "https://ksp.co.il/web/item/359176",
       "missing_streak": 0
     },
-    "424277": {
-      "uin": 424277,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Special Box Pokemon Center Fukuoka (Japanese)",
-      "price": 799,
-      "img": "https://ksp.co.il/shop/items/424277.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/424277",
-      "missing_streak": 0
-    },
     "432040": {
       "uin": 432040,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Super Electric Breaker - Booster Box (Japanese) - מארז 30 חפיסות",
       "price": 799,
       "img": "https://ksp.co.il/shop/items/432040.jpg?v=5",
       "url": "https://ksp.co.il/web/item/432040",
+      "missing_streak": 0
+    },
+    "424277": {
+      "uin": 424277,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Special Box Pokemon Center Fukuoka (Japanese)",
+      "price": 799,
+      "img": "https://ksp.co.il/shop/items/424277.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/424277",
       "missing_streak": 0
     },
     "481120": {
@@ -1846,5 +1846,5 @@
     "361571": "2026-08-17T17:31:44.387040+00:00",
     "374115": "2026-08-17T20:32:16.534875+00:00"
   },
-  "last_checked": "2026-08-18T09:47:10.147925+00:00"
+  "last_checked": "2026-08-18T09:52:51.441751+00:00"
 }
