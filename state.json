@@ -73,20 +73,20 @@
       "url": "https://ksp.co.il/web/item/314561",
       "missing_streak": 0
     },
-    "474004": {
-      "uin": 474004,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising Single Pack Blister - טוקסל",
-      "price": 39,
-      "img": "https://ksp.co.il/shop/items/474004.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474004",
-      "missing_streak": 0
-    },
     "485983": {
       "uin": 485983,
       "title": "קלפי אספנות פוקימון Luxray - Pokemon TCG ME05: Pitch Black - Premium Checklane",
       "price": 39,
       "img": "https://ksp.co.il/shop/items/485983.jpg?v=5",
       "url": "https://ksp.co.il/web/item/485983",
+      "missing_streak": 0
+    },
+    "474004": {
+      "uin": 474004,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising Single Pack Blister - טוקסל",
+      "price": 39,
+      "img": "https://ksp.co.il/shop/items/474004.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474004",
       "missing_streak": 0
     },
     "186593": {
@@ -209,6 +209,14 @@
       "url": "https://ksp.co.il/web/item/384756",
       "missing_streak": 0
     },
+    "449822": {
+      "uin": 449822,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Team Rockets Mewtwo ex League Battle Deck",
+      "price": 69,
+      "img": "https://ksp.co.il/shop/items/449822.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/449822",
+      "missing_streak": 0
+    },
     "395327": {
       "uin": 395327,
       "title": "קלפי אספנות פוקימון Boltund, Eiscue, Galarian Sirfetchd - Pokemon TCG: Knock Out Collection 22Q1",
@@ -223,14 +231,6 @@
       "price": 69,
       "img": "https://ksp.co.il/shop/items/395402.jpg?v=5",
       "url": "https://ksp.co.il/web/item/395402",
-      "missing_streak": 0
-    },
-    "449822": {
-      "uin": 449822,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Team Rockets Mewtwo ex League Battle Deck",
-      "price": 69,
-      "img": "https://ksp.co.il/shop/items/449822.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/449822",
       "missing_streak": 0
     },
     "474215": {
@@ -681,20 +681,20 @@
       "url": "https://ksp.co.il/web/item/472638",
       "missing_streak": 0
     },
-    "431548": {
-      "uin": 431548,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Mega Symphonia - Booster Box (Japanese) - מארז 30 חפיסות",
-      "price": 349,
-      "img": "https://ksp.co.il/shop/items/431548.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/431548",
-      "missing_streak": 0
-    },
     "481069": {
       "uin": 481069,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Ancient Roar - Booster Box (Japanese) - מארז 30 חפיסות",
       "price": 349,
       "img": "https://ksp.co.il/shop/items/481069.jpg?v=5",
       "url": "https://ksp.co.il/web/item/481069",
+      "missing_streak": 0
+    },
+    "431548": {
+      "uin": 431548,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Mega Symphonia - Booster Box (Japanese) - מארז 30 חפיסות",
+      "price": 349,
+      "img": "https://ksp.co.il/shop/items/431548.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/431548",
       "missing_streak": 0
     },
     "481087": {
@@ -737,20 +737,20 @@
       "url": "https://ksp.co.il/web/item/481091",
       "missing_streak": 0
     },
-    "416627": {
-      "uin": 416627,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME01: Mega Evolution Elite Trainer Box - מגה גארדוויר",
-      "price": 399,
-      "img": "https://ksp.co.il/shop/items/416627.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/416627",
-      "missing_streak": 0
-    },
     "481097": {
       "uin": 481097,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Abyss Eye - Booster Box (Japanese) - מארז 30 חפיסות",
       "price": 399,
       "img": "https://ksp.co.il/shop/items/481097.jpg?v=5",
       "url": "https://ksp.co.il/web/item/481097",
+      "missing_streak": 0
+    },
+    "416627": {
+      "uin": 416627,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME01: Mega Evolution Elite Trainer Box - מגה גארדוויר",
+      "price": 399,
+      "img": "https://ksp.co.il/shop/items/416627.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/416627",
       "missing_streak": 0
     },
     "486318": {
@@ -1846,5 +1846,5 @@
     "361571": "2026-08-17T17:31:44.387040+00:00",
     "374115": "2026-08-17T20:32:16.534875+00:00"
   },
-  "last_checked": "2026-08-18T12:47:41.195004+00:00"
+  "last_checked": "2026-08-18T12:53:29.259349+00:00"
 }
