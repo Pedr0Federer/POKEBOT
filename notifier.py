@@ -55,6 +55,17 @@ def send_telegram(item: dict, bot_token: str, chat_id: str, is_restock: bool = F
         return False
 
 
+def send_telegram_text(text: str, bot_token: str, chat_id: str) -> bool:
+    try:
+        url = TELEGRAM_API_BASE.format(token=bot_token, method="sendMessage")
+        resp = requests.post(url, json={"chat_id": chat_id, "text": text}, timeout=15)
+        resp.raise_for_status()
+        return True
+    except requests.RequestException:
+        log.exception("Failed to send Telegram text notification")
+        return False
+
+
 def send_windows_toast(item: dict, is_restock: bool = False) -> bool:
     try:
         from winotify import Notification, audio

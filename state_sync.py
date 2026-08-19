@@ -41,11 +41,21 @@ def _run(args: list[str]) -> subprocess.CompletedProcess:
 
 
 def pull_latest(log: logging.Logger) -> None:
-    """Fast-forward state.json from origin so a PC that was off doesn't
-    re-alert on items the cloud fallback already caught and announced."""
-    result = _run(["pull", "--ff-only", "origin", "main"])
+    """Sync state.json from origin on startup so a device that was off (or a
+    second device) doesn't re-alert on items another device already caught
+    and announced. Uses --rebase rather than --ff-only so a device with its
+    own unpushed heartbeat commit still picks up the latest remote state
+    instead of just giving up.
+
+    Discards any uncommitted state.json first -- if the previous run on this
+    device was killed mid-cycle (after writing state.json but before this
+    module's own commit), that leftover would otherwise block the rebase
+    outright. It's safe to drop: the loop's startup full check regenerates
+    state.json from live data immediately after this call anyway."""
+    _run(["checkout", "--", "state.json"])
+    result = _run(["pull", "--rebase", "origin", "main"])
     if result.returncode != 0:
-        log.warning("state_sync: git pull failed (continuing with local state): %s", result.stderr.strip())
+        log.warning("state_sync: git pull --rebase failed (continuing with local state): %s", result.stderr.strip())
 
 
 def push_state(log: logging.Logger) -> None:

@@ -22,11 +22,16 @@ import ctypes
 import logging
 import sys
 import time
+from pathlib import Path
 
 import ksp_client
 import ksp_monitor
+import notifier
 import state
 import state_sync
+
+BASE_DIR = Path(__file__).parent
+ENV_PATH = BASE_DIR / ".env"
 
 DEFAULT_LIGHT_CHECK_INTERVAL_SECONDS = 20
 DEFAULT_RECONCILIATION_INTERVAL_CHECKS = 15  # ~5 min at the default 20s interval
@@ -50,6 +55,18 @@ def acquire_single_instance_lock(log: logging.Logger) -> bool:
     return True
 
 
+def read_device_name() -> str:
+    """Identifies which device sent the startup notification. Each device
+    keeps its own untracked `.env` (see .env.example) -- there's no
+    shared/committed value beyond falling back to "Desktop" here."""
+    if ENV_PATH.exists():
+        for line in ENV_PATH.read_text(encoding="utf-8").splitlines():
+            key, sep, value = line.partition("=")
+            if sep and key.strip() == "DEVICE_NAME":
+                return value.strip().strip("'\"") or "Desktop"
+    return "Desktop"
+
+
 def loop() -> int:
     log = ksp_monitor.setup_logging()
     if not acquire_single_instance_lock(log):
@@ -60,6 +77,14 @@ def loop() -> int:
     except Exception:
         log.exception("Failed to load config.json")
         return 1
+
+    device_name = read_device_name()
+    notifier.send_telegram_text(
+        f"\U0001F680 KSP Bot started successfully on [{device_name}]",
+        config["telegram_bot_token"],
+        config["telegram_chat_id"],
+    )
+    log.info("Startup notification sent (device=%s)", device_name)
 
     session = ksp_client.make_session()
     category_id = config["category_id"]
