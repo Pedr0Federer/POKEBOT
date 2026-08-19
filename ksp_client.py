@@ -55,6 +55,9 @@ ITEM_CHECK_TIMEOUT = 5
 log = logging.getLogger("ksp_client")
 
 
+_BOOTSTRAP_ATTEMPTS = 3
+
+
 def _bootstrap_cf_cookies() -> list[dict]:
     """Load the KSP homepage in a headless browser to clear the Cloudflare
     JS challenge, and return the resulting cookie jar."""
@@ -64,7 +67,23 @@ def _bootstrap_cf_cookies() -> list[dict]:
         browser = p.chromium.launch(headless=True)
         try:
             page = browser.new_page(user_agent=CHROME_UA)
-            page.goto(CHALLENGE_WARMUP_URL, timeout=30_000, wait_until="networkidle")
+            for attempt in range(_BOOTSTRAP_ATTEMPTS):
+                resp = page.goto(CHALLENGE_WARMUP_URL, timeout=30_000, wait_until="networkidle")
+                status = resp.status if resp else None
+                cf_mitigated = resp.headers.get("cf-mitigated") if resp else None
+                title = page.title()
+                log.info(
+                    "Bootstrap attempt %d: nav_status=%s cf_mitigated=%s title=%r content_len=%d",
+                    attempt + 1,
+                    status,
+                    cf_mitigated,
+                    title,
+                    len(page.content()),
+                )
+                if status == 200 and not cf_mitigated:
+                    return page.context.cookies()
+                time.sleep(3)
+            log.warning("Cloudflare challenge did not clear after %d attempts", _BOOTSTRAP_ATTEMPTS)
             return page.context.cookies()
         finally:
             browser.close()
