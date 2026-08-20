@@ -26,7 +26,6 @@ from pathlib import Path
 
 import ksp_client
 import ksp_monitor
-import notifier
 import state
 import state_sync
 
@@ -56,9 +55,9 @@ def acquire_single_instance_lock(log: logging.Logger) -> bool:
 
 
 def read_device_name() -> str:
-    """Identifies which device sent the startup notification. Each device
-    keeps its own untracked `.env` (see .env.example) -- there's no
-    shared/committed value beyond falling back to "Desktop" here."""
+    """Identifies which device a log line came from. Each device keeps its
+    own untracked `.env` (see .env.example) -- there's no shared/committed
+    value beyond falling back to "Desktop" here."""
     if ENV_PATH.exists():
         for line in ENV_PATH.read_text(encoding="utf-8").splitlines():
             key, sep, value = line.partition("=")
@@ -79,14 +78,27 @@ def loop() -> int:
         return 1
 
     device_name = read_device_name()
-    notifier.send_telegram_text(
-        f"\U0001F680 KSP Bot started successfully on [{device_name}]",
-        config["telegram_bot_token"],
-        config["telegram_chat_id"],
-    )
-    log.info("Startup notification sent (device=%s)", device_name)
+    log.info("Daemon starting (device=%s)", device_name)
 
-    session = ksp_client.make_session()
+    # Bootstrapping the Cloudflare-cleared session can fail outright (e.g. a
+    # hard Cloudflare block, or Playwright navigation timing out) -- that
+    # used to be an unhandled exception here, which killed the whole
+    # pythonw.exe process silently (no console to show the traceback) and
+    # relied on the Task Scheduler watchdog trigger to relaunch it 15
+    # minutes later, resending the startup notification forever. Retrying
+    # in place instead keeps the process (and its single-instance mutex)
+    # alive through a transient block.
+    session = None
+    while session is None:
+        try:
+            session = ksp_client.make_session()
+        except Exception:
+            log.exception(
+                "Failed to bootstrap KSP session; retrying in %ds",
+                BACKOFF_AFTER_ERROR_SECONDS,
+            )
+            time.sleep(BACKOFF_AFTER_ERROR_SECONDS)
+
     category_id = config["category_id"]
     search = config.get("search")
 
