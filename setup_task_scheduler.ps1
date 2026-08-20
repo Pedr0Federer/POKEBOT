@@ -9,8 +9,10 @@
 # creates a duplicate running instance, because both Task Scheduler's own
 # MultipleInstancesPolicy=IgnoreNew and the loop's own named mutex
 # (ksp_monitor_loop.py) reject the relaunch attempt while the earlier
-# process still holds the lock. The loop no longer sends a Telegram message
-# on every start, so a watchdog relaunch after a real crash is silent too.
+# process still holds the lock. The loop's own retry loop around Cloudflare
+# session bootstrap means a transient block no longer crashes the process,
+# so a watchdog relaunch -- and the one Telegram "started" message that
+# comes with it -- should now only happen on a genuine, rare process death.
 #
 # This uses an XML task definition (via schtasks /Create /XML) rather than
 # schtasks' basic flags, because two settings the loop needs aren't reachable

@@ -26,6 +26,7 @@ from pathlib import Path
 
 import ksp_client
 import ksp_monitor
+import notifier
 import state
 import state_sync
 
@@ -55,9 +56,10 @@ def acquire_single_instance_lock(log: logging.Logger) -> bool:
 
 
 def read_device_name() -> str:
-    """Identifies which device a log line came from. Each device keeps its
-    own untracked `.env` (see .env.example) -- there's no shared/committed
-    value beyond falling back to "Desktop" here."""
+    """Identifies which device sent the startup notification (and which
+    device a log line came from). Each device keeps its own untracked
+    `.env` (see .env.example) -- there's no shared/committed value beyond
+    falling back to "Desktop" here."""
     if ENV_PATH.exists():
         for line in ENV_PATH.read_text(encoding="utf-8").splitlines():
             key, sep, value = line.partition("=")
@@ -109,6 +111,19 @@ def loop() -> int:
     state_sync.push_state(log)
 
     checks_since_reconciliation = 0
+
+    # Sent exactly once per process launch, here rather than anywhere inside
+    # the while-True cycle below, so a healthy long-running process never
+    # re-sends it. The Cloudflare-bootstrap retry loop above is what keeps
+    # this a rare, meaningful signal instead of spam: a real restart (and
+    # thus a real notification) now only happens if the process genuinely
+    # exits, not on every transient Cloudflare block.
+    notifier.send_telegram_text(
+        f"\U0001F680 KSP Bot started successfully on [{device_name}]",
+        config["telegram_bot_token"],
+        config["telegram_chat_id"],
+    )
+    log.info("Startup notification sent (device=%s)", device_name)
 
     while True:
         try:
