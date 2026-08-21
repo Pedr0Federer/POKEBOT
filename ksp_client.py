@@ -69,9 +69,14 @@ def _bootstrap_cf_cookies() -> list[dict]:
             page = browser.new_page(user_agent=CHROME_UA)
             for attempt in range(_BOOTSTRAP_ATTEMPTS):
                 resp = page.goto(CHALLENGE_WARMUP_URL, timeout=15_000, wait_until="domcontentloaded")
-                # Cloudflare's JS challenge runs after DOMContentLoaded and redirects
-                # once cleared; give it a moment before checking status/cf_mitigated.
-                page.wait_for_timeout(2_000)
+                # Cloudflare's JS challenge runs after DOMContentLoaded and sets the
+                # cf_clearance cookie asynchronously; poll for it briefly instead of
+                # waiting for networkidle (KSP never goes network-idle, which used
+                # to hang this call for the full 30s timeout on every attempt).
+                for _ in range(8):
+                    if any(c["name"] == "cf_clearance" for c in page.context.cookies()):
+                        break
+                    page.wait_for_timeout(500)
                 status = resp.status if resp else None
                 cf_mitigated = resp.headers.get("cf-mitigated") if resp else None
                 title = page.title()
