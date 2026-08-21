@@ -14,8 +14,24 @@ and retrying once.
 import logging
 import random
 import time
+from pathlib import Path
 
 from curl_cffi import requests as cf_requests
+
+# Dedicated persistent Chrome profile for the bootstrap browser -- NOT the
+# user's real Chrome user-data dir. Reusing the same profile across bootstrap
+# calls (including across separate process runs) lets Chrome's own on-disk
+# cookie jar carry a still-valid cf_clearance forward, so a fresh bootstrap
+# after a process restart can skip the JS challenge entirely if the previous
+# cookie hasn't expired yet -- giving Cloudflare a consistent "returning
+# device" profile instead of a brand-new anonymous browser every time.
+# Pointing this at the user's actual Chrome profile instead was considered
+# and rejected: Chrome refuses to open a second instance against a
+# user-data-dir that's already locked by a running Chrome window, so it would
+# fail unpredictably depending on whether the user happened to have Chrome
+# open, and it would mix bot automation into a profile holding the user's
+# real saved logins/extensions/browsing session.
+PROFILE_DIR = Path(__file__).parent / ".chrome_profile"
 
 API_BASE = "https://ksp.co.il/m_action/api/category"
 ITEM_API_TEMPLATE = "https://ksp.co.il/m_action/api/item/{uin}"
@@ -107,17 +123,31 @@ def _bootstrap_cf_cookies() -> list[dict]:
     itself, which plain Playwright leaves detectable. patchright is a
     Playwright fork that patches those specific CDP leaks (Runtime.enable
     artifacts etc.) while keeping the same sync_api -- drop-in otherwise.
+
+    Launched via launch_persistent_context against PROFILE_DIR rather than a
+    fresh throwaway context each time (still blocked as of 2026-08-21, ~2h
+    after the previous block -- see ksp-api-hard-block-2026-08-21 memory):
+    a brand-new, history-less browser profile is itself a bot signal, and it
+    throws away a still-valid cf_clearance on every single bootstrap. Reusing
+    one on-disk profile lets Chrome's own cookie jar carry clearance forward
+    across bootstrap calls, including across separate process restarts.
     """
     from patchright.sync_api import sync_playwright
 
+    PROFILE_DIR.mkdir(exist_ok=True)
     with sync_playwright() as p:
-        browser = p.chromium.launch(channel="chrome", headless=True, args=["--headless=new"])
-        try:
+        context = p.chromium.launch_persistent_context(
+            str(PROFILE_DIR),
+            channel="chrome",
+            headless=True,
+            args=["--headless=new"],
             # No user_agent override here (unlike the curl_cffi client below) --
             # letting the real Chrome install report its own true version keeps
             # its UA string, Sec-Ch-Ua Client Hints, and TLS fingerprint mutually
             # consistent, which a spoofed override would break.
-            page = browser.new_page()
+        )
+        try:
+            page = context.pages[0] if context.pages else context.new_page()
             for attempt in range(_BOOTSTRAP_ATTEMPTS):
                 resp = page.goto(CHALLENGE_WARMUP_URL, timeout=15_000, wait_until="domcontentloaded")
                 # Cloudflare's JS challenge runs after DOMContentLoaded and sets the
@@ -125,7 +155,7 @@ def _bootstrap_cf_cookies() -> list[dict]:
                 # waiting for networkidle (KSP never goes network-idle, which used
                 # to hang this call for the full 30s timeout on every attempt).
                 for _ in range(8):
-                    if any(c["name"] == "cf_clearance" for c in page.context.cookies()):
+                    if any(c["name"] == "cf_clearance" for c in context.cookies()):
                         break
                     page.wait_for_timeout(500)
                 status = resp.status if resp else None
@@ -140,12 +170,12 @@ def _bootstrap_cf_cookies() -> list[dict]:
                     len(page.content()),
                 )
                 if status == 200 and not cf_mitigated:
-                    return page.context.cookies()
+                    return context.cookies()
                 time.sleep(3)
             log.warning("Cloudflare challenge did not clear after %d attempts", _BOOTSTRAP_ATTEMPTS)
-            return page.context.cookies()
+            return context.cookies()
         finally:
-            browser.close()
+            context.close()
 
 
 def _apply_cf_cookies(session: cf_requests.Session) -> None:

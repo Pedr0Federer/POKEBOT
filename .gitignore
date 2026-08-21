@@ -3,3 +3,4 @@ config.json
 logs/
 __pycache__/
 *.pyc
+.chrome_profile/
