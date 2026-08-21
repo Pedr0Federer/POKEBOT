@@ -22,18 +22,44 @@ ITEM_API_TEMPLATE = "https://ksp.co.il/m_action/api/item/{uin}"
 ITEM_URL_TEMPLATE = "https://ksp.co.il/web/item/{uin}"
 CHALLENGE_WARMUP_URL = "https://ksp.co.il/web/"
 
-CHROME_UA = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-)
-IMPERSONATE = "chrome124"
+# curl_cffi's newest bundled impersonation target as of this writing is
+# chrome146 -- it auto-generates a TLS/HTTP2 fingerprint plus a fully
+# consistent header set (User-Agent, Sec-Ch-Ua*) matching that exact Chrome
+# version. Deliberately claiming a *different* Chrome version in headers
+# than the TLS fingerprint actually negotiates (e.g. an installed browser's
+# real version) creates a fingerprint mismatch that's an easy bot-detection
+# signal, so headers here are pinned to match chrome146 throughout rather
+# than the real Chrome install used for bootstrap (see _bootstrap_cf_cookies,
+# which intentionally does NOT override that browser's own identity).
+IMPERSONATE = "chrome146"
+CHROME_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
 
+# The preset above defaults to claiming macOS; overridden to Windows here to
+# match the platform of the real-Chrome bootstrap session whose cookies this
+# client reuses. Values otherwise mirror a genuine Chrome/146 Windows client
+# (captured from a real browser's request headers against this same API).
 HEADERS = {
     "User-Agent": CHROME_UA,
-    "Accept": "application/json",
+    "Accept": "*/*",
     "Accept-Language": "he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7",
     "Referer": "https://ksp.co.il/web/",
     "Origin": "https://ksp.co.il",
+    "lang": "he",
+    "sec-ch-ua": '"Not=A?Brand";v="99", "Google Chrome";v="146", "Chromium";v="146"',
+    "sec-ch-ua-full-version-list": (
+        '"Not=A?Brand";v="99.0.0.0", "Google Chrome";v="146.0.0.0", "Chromium";v="146.0.0.0"'
+    ),
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-ch-ua-platform-version": '"19.0.0"',
+    "sec-ch-ua-arch": '"x86"',
+    "sec-ch-ua-bitness": '"64"',
+    "sec-ch-ua-model": '""',
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "sec-gpc": "1",
+    "priority": "u=1, i",
 }
 
 REQUEST_TIMEOUT = 20
@@ -41,10 +67,14 @@ PAGE_JITTER_RANGE = (0.5, 1.5)
 
 # Transient upstream errors worth a short retry; Cloudflare's challenge is
 # handled separately via _CF_CHALLENGE_STATUS since it needs a re-bootstrap,
-# not just a delay.
+# not just a delay. Backoff here is deliberately generous -- KSP's WAF is
+# sensitive to request bursts (a burst of retries during debugging on
+# 2026-08-21 contributed to a temporary hard block), so a failed request
+# should back off meaningfully rather than hammer the endpoint again in a
+# couple of seconds.
 _RETRYABLE_STATUSES = (429, 500, 502, 503, 504)
 _MAX_RETRIES = 3
-_RETRY_BACKOFF_SECONDS = 2
+_RETRY_BACKOFF_SECONDS = 8
 _CF_CHALLENGE_STATUS = 403
 
 # The per-item endpoint answers in ~0.2s (single row lookup, no pagination),
@@ -59,14 +89,35 @@ _BOOTSTRAP_ATTEMPTS = 3
 
 
 def _bootstrap_cf_cookies() -> list[dict]:
-    """Load the KSP homepage in a headless browser to clear the Cloudflare
-    JS challenge, and return the resulting cookie jar."""
-    from playwright.sync_api import sync_playwright
+    """Load the KSP homepage in a real (not Playwright's bundled headless-shell)
+    Chrome browser to clear the Cloudflare JS challenge, and return the
+    resulting cookie jar.
+
+    Playwright's default headless=True launches a stripped-down
+    "headless shell" build that self-identifies as HeadlessChrome via the
+    Sec-Ch-Ua Client Hints header regardless of launch flags -- confirmed via
+    live network capture on 2026-08-21, this alone is enough for KSP's WAF to
+    block every API call even after the JS challenge nominally clears.
+    channel="chrome" launches the actual installed Google Chrome instead,
+    which in new-headless mode reports a real, internally consistent
+    fingerprint -- but that alone still wasn't enough (confirmed via live
+    testing on 2026-08-21: KSP's Cloudflare Bot Management blocked even a
+    real-Chrome-driven session on its very first request). The remaining
+    signal is the CDP (Chrome DevTools Protocol) automation connection
+    itself, which plain Playwright leaves detectable. patchright is a
+    Playwright fork that patches those specific CDP leaks (Runtime.enable
+    artifacts etc.) while keeping the same sync_api -- drop-in otherwise.
+    """
+    from patchright.sync_api import sync_playwright
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(channel="chrome", headless=True, args=["--headless=new"])
         try:
-            page = browser.new_page(user_agent=CHROME_UA)
+            # No user_agent override here (unlike the curl_cffi client below) --
+            # letting the real Chrome install report its own true version keeps
+            # its UA string, Sec-Ch-Ua Client Hints, and TLS fingerprint mutually
+            # consistent, which a spoofed override would break.
+            page = browser.new_page()
             for attempt in range(_BOOTSTRAP_ATTEMPTS):
                 resp = page.goto(CHALLENGE_WARMUP_URL, timeout=15_000, wait_until="domcontentloaded")
                 # Cloudflare's JS challenge runs after DOMContentLoaded and sets the
@@ -122,6 +173,10 @@ def _get(session: cf_requests.Session, url: str, params: dict, timeout: float):
             log.warning("Hit Cloudflare challenge; re-bootstrapping session and retrying")
             _apply_cf_cookies(session)
             rebootstrapped = True
+            # A brief pause before reusing the freshly re-bootstrapped session
+            # avoids an immediate second hit right on the heels of the
+            # bootstrap request itself.
+            time.sleep(_RETRY_BACKOFF_SECONDS)
             continue
         if resp.status_code in _RETRYABLE_STATUSES and attempt < _MAX_RETRIES:
             time.sleep(_RETRY_BACKOFF_SECONDS * (attempt + 1))

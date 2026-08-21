@@ -35,7 +35,21 @@ ENV_PATH = BASE_DIR / ".env"
 
 DEFAULT_LIGHT_CHECK_INTERVAL_SECONDS = 20
 DEFAULT_RECONCILIATION_INTERVAL_CHECKS = 15  # ~5 min at the default 20s interval
-BACKOFF_AFTER_ERROR_SECONDS = 30
+
+# Exponential backoff on consecutive errors (bootstrap failures and fast-poll
+# cycle errors alike): base * 2**(consecutive_errors-1), capped at max. Prior
+# flat 30s retries let a burst of failures re-hit KSP every 30-50s
+# indefinitely, which contributed to a temporary WAF block during 2026-08-21
+# debugging -- backing off further on repeated failures avoids repeating that.
+BASE_BACKOFF_AFTER_ERROR_SECONDS = 60
+MAX_BACKOFF_AFTER_ERROR_SECONDS = 900
+
+
+def _backoff_seconds(consecutive_errors: int) -> int:
+    return min(
+        BASE_BACKOFF_AFTER_ERROR_SECONDS * (2 ** (consecutive_errors - 1)),
+        MAX_BACKOFF_AFTER_ERROR_SECONDS,
+    )
 
 MUTEX_NAME = "Global\\KSPPokemonMonitorMutex"
 ERROR_ALREADY_EXISTS = 183
@@ -68,6 +82,24 @@ def read_device_name() -> str:
     return "Desktop"
 
 
+def _run_full_check_with_backoff(config, log, session, consecutive_errors: int) -> int:
+    """Runs a full check and pushes state, returning the updated
+    consecutive-error count. run_full_check() catches its own fetch
+    exceptions and returns a status code rather than raising, so its
+    failures need to be turned into backoff here explicitly -- otherwise
+    they'd retry at the normal fast-poll interval indefinitely, exactly
+    the burst pattern this backoff is meant to avoid."""
+    result = ksp_monitor.run_full_check(config, log, session)
+    state_sync.push_state(log)
+    if result != 0:
+        consecutive_errors += 1
+        backoff = _backoff_seconds(consecutive_errors)
+        log.warning("Full check failed; backing off %ds before next cycle", backoff)
+        time.sleep(backoff)
+        return consecutive_errors
+    return 0
+
+
 def loop() -> int:
     log = ksp_monitor.setup_logging()
     if not acquire_single_instance_lock(log):
@@ -91,15 +123,18 @@ def loop() -> int:
     # in place instead keeps the process (and its single-instance mutex)
     # alive through a transient block.
     session = None
+    bootstrap_errors = 0
     while session is None:
         try:
             session = ksp_client.make_session()
         except Exception:
+            bootstrap_errors += 1
+            backoff = _backoff_seconds(bootstrap_errors)
             log.exception(
                 "Failed to bootstrap KSP session; retrying in %ds",
-                BACKOFF_AFTER_ERROR_SECONDS,
+                backoff,
             )
-            time.sleep(BACKOFF_AFTER_ERROR_SECONDS)
+            time.sleep(backoff)
 
     category_id = config["category_id"]
     search = config.get("search")
@@ -125,6 +160,7 @@ def loop() -> int:
     state_sync.push_state(log)
 
     checks_since_reconciliation = 0
+    consecutive_errors = 0
 
     while True:
         try:
@@ -149,11 +185,11 @@ def loop() -> int:
                     baseline_total,
                     live_total,
                 )
-                ksp_monitor.run_full_check(config, log, session)
-                state_sync.push_state(log)
+                consecutive_errors = _run_full_check_with_backoff(config, log, session, consecutive_errors)
                 checks_since_reconciliation = 0
                 continue
 
+            consecutive_errors = 0
             checks_since_reconciliation += 1
             if checks_since_reconciliation >= reconciliation_every:
                 log.info(
@@ -161,19 +197,20 @@ def loop() -> int:
                     live_total,
                     checks_since_reconciliation,
                 )
-                ksp_monitor.run_full_check(config, log, session)
-                state_sync.push_state(log)
+                consecutive_errors = _run_full_check_with_backoff(config, log, session, consecutive_errors)
                 checks_since_reconciliation = 0
 
         except KeyboardInterrupt:
             log.info("KeyboardInterrupt received, stopping loop.")
             return 0
         except Exception:
+            consecutive_errors += 1
+            backoff = _backoff_seconds(consecutive_errors)
             log.exception(
                 "Unhandled error in fast-poll cycle; backing off %ds and continuing",
-                BACKOFF_AFTER_ERROR_SECONDS,
+                backoff,
             )
-            time.sleep(BACKOFF_AFTER_ERROR_SECONDS)
+            time.sleep(backoff)
 
 
 if __name__ == "__main__":
