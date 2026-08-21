@@ -68,7 +68,10 @@ def _bootstrap_cf_cookies() -> list[dict]:
         try:
             page = browser.new_page(user_agent=CHROME_UA)
             for attempt in range(_BOOTSTRAP_ATTEMPTS):
-                resp = page.goto(CHALLENGE_WARMUP_URL, timeout=30_000, wait_until="networkidle")
+                resp = page.goto(CHALLENGE_WARMUP_URL, timeout=15_000, wait_until="domcontentloaded")
+                # Cloudflare's JS challenge runs after DOMContentLoaded and redirects
+                # once cleared; give it a moment before checking status/cf_mitigated.
+                page.wait_for_timeout(2_000)
                 status = resp.status if resp else None
                 cf_mitigated = resp.headers.get("cf-mitigated") if resp else None
                 title = page.title()
