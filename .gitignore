@@ -1,6 +1,4 @@
 config.json
-.env
 logs/
 __pycache__/
 *.pyc
-.chrome_profile/

@@ -1,28 +1,16 @@
 # Registers a Windows Scheduled Task that launches the KSP fast-poll monitor
-# loop (ksp_monitor_loop.py) at logon and lets it run indefinitely, checking
-# KSP roughly every 15-30 seconds.
-#
-# A second trigger re-attempts a launch every 15 minutes as a watchdog, in
-# case the logon-triggered process dies for some unexpected reason (there's
-# otherwise no supervisor to bring it back until the next logon/reboot).
-# This is safe to fire at that cadence while the loop is healthy: it never
-# creates a duplicate running instance, because both Task Scheduler's own
-# MultipleInstancesPolicy=IgnoreNew and the loop's own named mutex
-# (ksp_monitor_loop.py) reject the relaunch attempt while the earlier
-# process still holds the lock. The loop's own retry loop around Cloudflare
-# session bootstrap means a transient block no longer crashes the process,
-# so a watchdog relaunch -- and the one Telegram "started" message that
-# comes with it -- should now only happen on a genuine, rare process death.
+# loop (ksp_monitor_loop.py) once at logon and lets it run indefinitely,
+# checking KSP roughly every 15-30 seconds.
 #
 # This uses an XML task definition (via schtasks /Create /XML) rather than
 # schtasks' basic flags, because two settings the loop needs aren't reachable
 # from the basic flags:
 #   - ExecutionTimeLimit must be disabled (PT0S / unlimited). Task Scheduler's
 #     default 72-hour limit would silently kill a `while True` loop.
-#   - MultipleInstancesPolicy = IgnoreNew, so if a trigger fires again while
-#     the loop is already running, Task Scheduler itself won't start a
-#     second copy (the loop also self-enforces this with a named mutex, but
-#     this is a second layer of protection).
+#   - MultipleInstancesPolicy = IgnoreNew, so if the task fires again at a
+#     later logon while the loop is already running, Task Scheduler itself
+#     won't start a second copy (the loop also self-enforces this with a
+#     named mutex, but this is a second layer of protection).
 #
 # Also note: on this machine the ScheduledTasks PowerShell module
 # (Register-ScheduledTask) fails with "Access is denied" for this user's
@@ -53,13 +41,6 @@ $XmlContent = @"
       <Enabled>true</Enabled>
       <UserId>$UserId</UserId>
     </LogonTrigger>
-    <TimeTrigger>
-      <Enabled>true</Enabled>
-      <StartBoundary>2026-01-01T00:00:00</StartBoundary>
-      <Repetition>
-        <Interval>PT15M</Interval>
-      </Repetition>
-    </TimeTrigger>
   </Triggers>
   <Principals>
     <Principal id="Author">
