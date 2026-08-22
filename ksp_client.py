@@ -61,6 +61,7 @@ _BOOTSTRAP_ATTEMPTS = 3
 def _bootstrap_cf_cookies() -> list[dict]:
     """Load the KSP homepage in a headless browser to clear the Cloudflare
     JS challenge, and return the resulting cookie jar."""
+    from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as p:
@@ -68,7 +69,16 @@ def _bootstrap_cf_cookies() -> list[dict]:
         try:
             page = browser.new_page(user_agent=CHROME_UA)
             for attempt in range(_BOOTSTRAP_ATTEMPTS):
-                resp = page.goto(CHALLENGE_WARMUP_URL, timeout=30_000, wait_until="networkidle")
+                # KSP never reaches network-idle, so wait_until="networkidle" used to
+                # hang every attempt for the full timeout; "domcontentloaded" plus an
+                # unhandled-timeout guard below avoids both the hang and a crash that
+                # would otherwise kill the whole monitor process on a slow/failed load.
+                try:
+                    resp = page.goto(CHALLENGE_WARMUP_URL, timeout=15_000, wait_until="domcontentloaded")
+                except PlaywrightTimeoutError:
+                    log.warning("Bootstrap attempt %d: navigation timed out", attempt + 1)
+                    time.sleep(3)
+                    continue
                 status = resp.status if resp else None
                 cf_mitigated = resp.headers.get("cf-mitigated") if resp else None
                 title = page.title()
