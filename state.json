@@ -9,20 +9,20 @@
       "url": "https://ksp.co.il/web/item/453872",
       "missing_streak": 0
     },
-    "481354": {
-      "uin": 481354,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Pack",
-      "price": 29,
-      "img": "https://ksp.co.il/shop/items/481354.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/481354",
-      "missing_streak": 0
-    },
     "486551": {
       "uin": 486551,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Booster Pack",
       "price": 29,
       "img": "https://ksp.co.il/shop/items/486551.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486551",
+      "missing_streak": 0
+    },
+    "481354": {
+      "uin": 481354,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Pack",
+      "price": 29,
+      "img": "https://ksp.co.il/shop/items/481354.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/481354",
       "missing_streak": 0
     },
     "485989": {
@@ -497,20 +497,20 @@
       "url": "https://ksp.co.il/web/item/446382",
       "missing_streak": 0
     },
-    "485686": {
-      "uin": 485686,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Bundle",
-      "price": 179,
-      "img": "https://ksp.co.il/shop/items/485686.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/485686",
-      "missing_streak": 0
-    },
     "422138": {
       "uin": 422138,
       "title": "קלפי אספנות Pokemon TCG: Mega Kangaskhan ex Box",
       "price": 179,
       "img": "https://ksp.co.il/shop/items/422138.jpg?v=5",
       "url": "https://ksp.co.il/web/item/422138",
+      "missing_streak": 0
+    },
+    "485686": {
+      "uin": 485686,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Bundle",
+      "price": 179,
+      "img": "https://ksp.co.il/shop/items/485686.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/485686",
       "missing_streak": 0
     },
     "459329": {
@@ -553,20 +553,20 @@
       "url": "https://ksp.co.il/web/item/364662",
       "missing_streak": 0
     },
-    "453967": {
-      "uin": 453967,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection (26Q1)",
-      "price": 219,
-      "img": "https://ksp.co.il/shop/items/453967.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/453967",
-      "missing_streak": 0
-    },
     "474552": {
       "uin": 474552,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection Series 2",
       "price": 219,
       "img": "https://ksp.co.il/shop/items/474552.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474552",
+      "missing_streak": 0
+    },
+    "453967": {
+      "uin": 453967,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection (26Q1)",
+      "price": 219,
+      "img": "https://ksp.co.il/shop/items/453967.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/453967",
       "missing_streak": 0
     },
     "314690": {
@@ -1017,20 +1017,20 @@
       "url": "https://ksp.co.il/web/item/424289",
       "missing_streak": 0
     },
-    "395293": {
-      "uin": 395293,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Surging Sparks Booster Box - מארז 36 חפיסות",
-      "price": 1199,
-      "img": "https://ksp.co.il/shop/items/395293.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/395293",
-      "missing_streak": 0
-    },
     "416614": {
       "uin": 416614,
       "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Booster Box",
       "price": 1199,
       "img": "https://ksp.co.il/shop/items/416614.jpg?v=5",
       "url": "https://ksp.co.il/web/item/416614",
+      "missing_streak": 0
+    },
+    "395293": {
+      "uin": 395293,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Surging Sparks Booster Box - מארז 36 חפיסות",
+      "price": 1199,
+      "img": "https://ksp.co.il/shop/items/395293.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/395293",
       "missing_streak": 0
     },
     "398965": {
@@ -1834,5 +1834,5 @@
     "379923": "2026-08-19T11:54:00.672331+00:00",
     "430241": "2026-08-23T15:18:54.107739+00:00"
   },
-  "last_checked": "2026-08-24T00:55:37.443266+00:00"
+  "last_checked": "2026-08-24T01:01:16.099114+00:00"
 }
