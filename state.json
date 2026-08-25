@@ -265,20 +265,20 @@
       "url": "https://ksp.co.il/web/item/474222",
       "missing_streak": 0
     },
-    "486556": {
-      "uin": 486556,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Perfect Order - Art Set",
-      "price": 89,
-      "img": "https://ksp.co.il/shop/items/486556.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486556",
-      "missing_streak": 0
-    },
     "278260": {
       "uin": 278260,
       "title": "מארז קלפי אספנות פוקימון Pokemon TCG: ex Battle Deck (Tinkaton ex)",
       "price": 89,
       "img": "https://ksp.co.il/shop/items/278260.jpg?v=5",
       "url": "https://ksp.co.il/web/item/278260",
+      "missing_streak": 0
+    },
+    "486556": {
+      "uin": 486556,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Perfect Order - Art Set",
+      "price": 89,
+      "img": "https://ksp.co.il/shop/items/486556.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486556",
       "missing_streak": 0
     },
     "278243": {
@@ -329,6 +329,14 @@
       "url": "https://ksp.co.il/web/item/446385",
       "missing_streak": 0
     },
+    "379305": {
+      "uin": 379305,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - גלסיאון",
+      "price": 119,
+      "img": "https://ksp.co.il/shop/items/379305.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/379305",
+      "missing_streak": 0
+    },
     "379288": {
       "uin": 379288,
       "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - ג'ולטיאון",
@@ -343,14 +351,6 @@
       "price": 119,
       "img": "https://ksp.co.il/shop/items/379297.jpg?v=5",
       "url": "https://ksp.co.il/web/item/379297",
-      "missing_streak": 0
-    },
-    "379305": {
-      "uin": 379305,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - גלסיאון",
-      "price": 119,
-      "img": "https://ksp.co.il/shop/items/379305.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/379305",
       "missing_streak": 0
     },
     "481361": {
@@ -705,14 +705,6 @@
       "url": "https://ksp.co.il/web/item/481081",
       "missing_streak": 0
     },
-    "486313": {
-      "uin": 486313,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Mask of Change - Booster Box (Japanese) - מארז 30 חפיסות",
-      "price": 399,
-      "img": "https://ksp.co.il/shop/items/486313.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486313",
-      "missing_streak": 0
-    },
     "481091": {
       "uin": 481091,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Ninja Spinner - Booster Box (Japanese) - מארז 30 חפיסות",
@@ -721,12 +713,12 @@
       "url": "https://ksp.co.il/web/item/481091",
       "missing_streak": 0
     },
-    "481097": {
-      "uin": 481097,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Abyss Eye - Booster Box (Japanese) - מארז 30 חפיסות",
+    "486313": {
+      "uin": 486313,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Mask of Change - Booster Box (Japanese) - מארז 30 חפיסות",
       "price": 399,
-      "img": "https://ksp.co.il/shop/items/481097.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/481097",
+      "img": "https://ksp.co.il/shop/items/486313.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486313",
       "missing_streak": 0
     },
     "416627": {
@@ -735,6 +727,14 @@
       "price": 399,
       "img": "https://ksp.co.il/shop/items/416627.jpg?v=5",
       "url": "https://ksp.co.il/web/item/416627",
+      "missing_streak": 0
+    },
+    "481097": {
+      "uin": 481097,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Abyss Eye - Booster Box (Japanese) - מארז 30 חפיסות",
+      "price": 399,
+      "img": "https://ksp.co.il/shop/items/481097.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/481097",
       "missing_streak": 0
     },
     "486318": {
@@ -857,6 +857,14 @@
       "url": "https://ksp.co.il/web/item/424277",
       "missing_streak": 0
     },
+    "362716": {
+      "uin": 362716,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together Booster Box - מארז 36 חפיסות",
+      "price": 869,
+      "img": "https://ksp.co.il/shop/items/362716.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/362716",
+      "missing_streak": 0
+    },
     "481120": {
       "uin": 481120,
       "title": "קלפי אספנות פוקימון Pokemon TCG: White Flare - Deluxe Booster Box (Japanese) - מארז 4 חפיסות",
@@ -873,14 +881,6 @@
       "url": "https://ksp.co.il/web/item/474333",
       "missing_streak": 0
     },
-    "417701": {
-      "uin": 417701,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Inferno X (Japanese) Booster Box - מארז 30 חפיסות",
-      "price": 849,
-      "img": "https://ksp.co.il/shop/items/417701.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/417701",
-      "missing_streak": 0
-    },
     "446039": {
       "uin": 446039,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME: Perfect Order Booster Box - מארז 36 חפיסות",
@@ -895,6 +895,14 @@
       "price": 849,
       "img": "https://ksp.co.il/shop/items/415839.jpg?v=5",
       "url": "https://ksp.co.il/web/item/415839",
+      "missing_streak": 0
+    },
+    "417701": {
+      "uin": 417701,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Inferno X (Japanese) Booster Box - מארז 30 חפיסות",
+      "price": 849,
+      "img": "https://ksp.co.il/shop/items/417701.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/417701",
       "missing_streak": 0
     },
     "464226": {
@@ -929,20 +937,20 @@
       "url": "https://ksp.co.il/web/item/465059",
       "missing_streak": 0
     },
-    "384644": {
-      "uin": 384644,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Destined Rivals Elite Trainer Box",
-      "price": 899,
-      "img": "https://ksp.co.il/shop/items/384644.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/384644",
-      "missing_streak": 0
-    },
     "431540": {
       "uin": 431540,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Glory of Team Rocket - Booster Box (Japanese) - מארז 30 חפיסות",
       "price": 899,
       "img": "https://ksp.co.il/shop/items/431540.jpg?v=5",
       "url": "https://ksp.co.il/web/item/431540",
+      "missing_streak": 0
+    },
+    "384644": {
+      "uin": 384644,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Destined Rivals Elite Trainer Box",
+      "price": 899,
+      "img": "https://ksp.co.il/shop/items/384644.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/384644",
       "missing_streak": 0
     },
     "428726": {
@@ -1001,20 +1009,20 @@
       "url": "https://ksp.co.il/web/item/424289",
       "missing_streak": 0
     },
-    "395293": {
-      "uin": 395293,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Surging Sparks Booster Box - מארז 36 חפיסות",
-      "price": 1199,
-      "img": "https://ksp.co.il/shop/items/395293.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/395293",
-      "missing_streak": 0
-    },
     "416614": {
       "uin": 416614,
       "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Booster Box",
       "price": 1199,
       "img": "https://ksp.co.il/shop/items/416614.jpg?v=5",
       "url": "https://ksp.co.il/web/item/416614",
+      "missing_streak": 0
+    },
+    "395293": {
+      "uin": 395293,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Surging Sparks Booster Box - מארז 36 חפיסות",
+      "price": 1199,
+      "img": "https://ksp.co.il/shop/items/395293.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/395293",
       "missing_streak": 0
     },
     "398965": {
@@ -1049,22 +1057,6 @@
       "url": "https://ksp.co.il/web/item/370271",
       "missing_streak": 0
     },
-    "453969": {
-      "uin": 453969,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection (26Q1) - מארז המכיל 6 First Partner Illustration Collection (קייס סגור)",
-      "price": 1299,
-      "img": "https://ksp.co.il/shop/items/453969.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/453969",
-      "missing_streak": 0
-    },
-    "474503": {
-      "uin": 474503,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection Series 2 Case - מארז המכיל 6 First Partner Illustration Collection Series 2 (קייס סגור)",
-      "price": 1299,
-      "img": "https://ksp.co.il/shop/items/474503.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474503",
-      "missing_streak": 0
-    },
     "369884": {
       "uin": 369884,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Temporal Forces Booster Box - מארז 36 חפיסות",
@@ -1079,6 +1071,22 @@
       "price": 1299,
       "img": "https://ksp.co.il/shop/items/380042.jpg?v=5",
       "url": "https://ksp.co.il/web/item/380042",
+      "missing_streak": 0
+    },
+    "453969": {
+      "uin": 453969,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection (26Q1) - מארז המכיל 6 First Partner Illustration Collection (קייס סגור)",
+      "price": 1299,
+      "img": "https://ksp.co.il/shop/items/453969.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/453969",
+      "missing_streak": 0
+    },
+    "474503": {
+      "uin": 474503,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection Series 2 Case - מארז המכיל 6 First Partner Illustration Collection Series 2 (קייס סגור)",
+      "price": 1299,
+      "img": "https://ksp.co.il/shop/items/474503.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474503",
       "missing_streak": 0
     },
     "487838": {
@@ -1513,14 +1521,6 @@
       "url": "https://ksp.co.il/web/item/395276",
       "missing_streak": 0
     },
-    "362716": {
-      "uin": 362716,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together Booster Box - מארז 36 חפיסות",
-      "price": 869,
-      "img": "https://ksp.co.il/shop/items/362716.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/362716",
-      "missing_streak": 0
-    },
     "379303": {
       "uin": 379303,
       "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - ליפיאון",
@@ -1834,5 +1834,5 @@
     "431923": "2026-08-24T13:13:34.135828+00:00",
     "431941": "2026-08-24T17:20:16.473985+00:00"
   },
-  "last_checked": "2026-08-25T09:46:23.360711+00:00"
+  "last_checked": "2026-08-25T09:52:07.874797+00:00"
 }
