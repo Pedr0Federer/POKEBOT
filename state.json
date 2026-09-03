@@ -241,6 +241,14 @@
       "url": "https://ksp.co.il/web/item/474218",
       "missing_streak": 0
     },
+    "474207": {
+      "uin": 474207,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - מגניום ומיאוסטיק",
+      "price": 74,
+      "img": "https://ksp.co.il/shop/items/474207.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474207",
+      "missing_streak": 0
+    },
     "474221": {
       "uin": 474221,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - גאלייד וגומי",
@@ -255,14 +263,6 @@
       "price": 74,
       "img": "https://ksp.co.il/shop/items/474222.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474222",
-      "missing_streak": 0
-    },
-    "474207": {
-      "uin": 474207,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - מגניום ומיאוסטיק",
-      "price": 74,
-      "img": "https://ksp.co.il/shop/items/474207.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474207",
       "missing_streak": 0
     },
     "486556": {
@@ -497,20 +497,20 @@
       "url": "https://ksp.co.il/web/item/446382",
       "missing_streak": 0
     },
-    "485686": {
-      "uin": 485686,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Bundle",
-      "price": 179,
-      "img": "https://ksp.co.il/shop/items/485686.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/485686",
-      "missing_streak": 0
-    },
     "422138": {
       "uin": 422138,
       "title": "קלפי אספנות Pokemon TCG: Mega Kangaskhan ex Box",
       "price": 179,
       "img": "https://ksp.co.il/shop/items/422138.jpg?v=5",
       "url": "https://ksp.co.il/web/item/422138",
+      "missing_streak": 0
+    },
+    "485686": {
+      "uin": 485686,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Bundle",
+      "price": 179,
+      "img": "https://ksp.co.il/shop/items/485686.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/485686",
       "missing_streak": 0
     },
     "459329": {
@@ -633,6 +633,14 @@
       "url": "https://ksp.co.il/web/item/486692",
       "missing_streak": 0
     },
+    "446055": {
+      "uin": 446055,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME03: Perfect Order - Elite Trainer Box",
+      "price": 299,
+      "img": "https://ksp.co.il/shop/items/446055.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/446055",
+      "missing_streak": 0
+    },
     "486689": {
       "uin": 486689,
       "title": "קלפי אספנות פוקימון Greninja - Pokemon TCG 30th Celebration: ex Box - צפי משוער לתחילת אספקה - 15.10",
@@ -655,14 +663,6 @@
       "price": 299,
       "img": "https://ksp.co.il/shop/items/486700.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486700",
-      "missing_streak": 0
-    },
-    "446055": {
-      "uin": 446055,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME03: Perfect Order - Elite Trainer Box",
-      "price": 299,
-      "img": "https://ksp.co.il/shop/items/446055.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/446055",
       "missing_streak": 0
     },
     "465094": {
@@ -1145,6 +1145,14 @@
       "url": "https://ksp.co.il/web/item/369884",
       "missing_streak": 0
     },
+    "479458": {
+      "uin": 479458,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Armarouge EX Premium Collection Case - מארז המכיל 6 Armarouge EX Premium Collection (קייס סגור)",
+      "price": 1299,
+      "img": "https://ksp.co.il/shop/items/479458.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/479458",
+      "missing_streak": 0
+    },
     "487838": {
       "uin": 487838,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection Series 3 Case - מארז המכיל 6 First Partner Illustration Collection Series 3 (קייס סגור)",
@@ -1600,14 +1608,6 @@
       "img": "https://ksp.co.il/shop/items/395276.jpg?v=5",
       "url": "https://ksp.co.il/web/item/395276",
       "missing_streak": 0
-    },
-    "479458": {
-      "uin": 479458,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Armarouge EX Premium Collection Case - מארז המכיל 6 Armarouge EX Premium Collection (קייס סגור)",
-      "price": 1299,
-      "img": "https://ksp.co.il/shop/items/479458.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/479458",
-      "missing_streak": 0
     }
   },
   "all_time_seen_uins": [
@@ -1905,5 +1905,5 @@
     "422254": "2026-09-01T13:17:40.116191+00:00",
     "379306": "2026-09-02T20:40:34.185813+00:00"
   },
-  "last_checked": "2026-09-03T07:39:13.349426+00:00"
+  "last_checked": "2026-09-03T07:45:03.943931+00:00"
 }
