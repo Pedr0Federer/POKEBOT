@@ -169,6 +169,7 @@ def run_full_check(config: dict, log: logging.Logger, session=None) -> int:
         )
     elif new_uins:
         log.info("Detected %d changed item(s): %s", len(new_uins), sorted(new_uins))
+        total_delta = products_total - previous.get("products_total", 0)
         bot_token = config.get("telegram_bot_token", "")
         chat_id = config.get("telegram_chat_id", "")
         toast_enabled = config.get("windows_toast_enabled", True)
@@ -188,7 +189,10 @@ def run_full_check(config: dict, log: logging.Logger, session=None) -> int:
                 log.info("Suppressed restock alert for uin=%s (restock_alerts_enabled=false)", uin)
                 continue
             if bot_token and not bot_token.startswith("PASTE_"):
-                notifier.notify_new_item(item, bot_token, chat_id, toast_enabled, is_restock)
+                notifier.notify_new_item(
+                    item, bot_token, chat_id, toast_enabled, is_restock,
+                    products_total=products_total, total_delta=total_delta,
+                )
             elif toast_enabled:
                 toast_ok = notifier.send_windows_toast(item, is_restock)
                 log.info(
@@ -240,6 +244,7 @@ def run_full_check(config: dict, log: logging.Logger, session=None) -> int:
         updated_all_time_seen,
         now_iso,
         updated_out_of_stock_since,
+        previous.get("mute_until"),
     )
     return 0
 

@@ -2,6 +2,7 @@
 
 import json
 import os
+from datetime import datetime, timezone
 from pathlib import Path
 
 STATE_PATH = Path(__file__).parent / "state.json"
@@ -15,6 +16,7 @@ def load_state() -> dict:
             "all_time_seen_uins": [],
             "out_of_stock_since": {},
             "last_checked": None,
+            "mute_until": None,
         }
     with open(STATE_PATH, encoding="utf-8") as f:
         data = json.load(f)
@@ -25,6 +27,8 @@ def load_state() -> dict:
         data["all_time_seen_uins"] = [int(uin) for uin in data.get("items", {}).keys()]
     if "out_of_stock_since" not in data:
         data["out_of_stock_since"] = {}
+    if "mute_until" not in data:
+        data["mute_until"] = None
     return data
 
 
@@ -34,6 +38,7 @@ def save_state(
     all_time_seen_uins,
     last_checked: str,
     out_of_stock_since: dict[str, str] | None = None,
+    mute_until: str | None = None,
 ) -> None:
     payload = {
         "products_total": products_total,
@@ -48,8 +53,57 @@ def save_state(
         # missing-streak grace window, all the way until the item restocks.
         "out_of_stock_since": dict(out_of_stock_since or {}),
         "last_checked": last_checked,
+        # ISO timestamp until which the Telegram command listener has muted
+        # new-product alerts, or None if not muted. Threaded through every
+        # save_state call (callers pass through their loaded value) so a
+        # full check or a baseline rebase never silently clears an active mute.
+        "mute_until": mute_until,
     }
     tmp_path = STATE_PATH.with_suffix(".json.tmp")
     with open(tmp_path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
     os.replace(tmp_path, STATE_PATH)
+
+
+def update_products_total(products_total: int, last_checked: str) -> None:
+    """Rebase just the products_total baseline, leaving items/history
+    untouched. Used when a lightweight check sees the site's counter drop
+    (items went out of stock) -- no full crawl is needed to explain a
+    decrease, just a silent baseline update."""
+    data = load_state()
+    save_state(
+        products_total,
+        {int(uin): item for uin, item in data.get("items", {}).items()},
+        data.get("all_time_seen_uins", []),
+        last_checked,
+        data.get("out_of_stock_since", {}),
+        data.get("mute_until"),
+    )
+
+
+def set_mute_until(until_iso: str | None) -> None:
+    """Persist the Telegram alert mute deadline (or None to unmute),
+    leaving items/history/counter untouched."""
+    data = load_state()
+    save_state(
+        data.get("products_total", 0),
+        {int(uin): item for uin, item in data.get("items", {}).items()},
+        data.get("all_time_seen_uins", []),
+        data.get("last_checked"),
+        data.get("out_of_stock_since", {}),
+        until_iso,
+    )
+
+
+def is_muted(now: datetime | None = None) -> bool:
+    """True if a Telegram command listener mute window is currently active."""
+    until_iso = load_state().get("mute_until")
+    if not until_iso:
+        return False
+    try:
+        until = datetime.fromisoformat(until_iso)
+    except ValueError:
+        return False
+    if until.tzinfo is None:
+        until = until.replace(tzinfo=timezone.utc)
+    return until > (now or datetime.now(timezone.utc))
