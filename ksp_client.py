@@ -26,7 +26,10 @@ CHROME_UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 )
-IMPERSONATE = "chrome124"
+# Must match the Chrome version claimed in CHROME_UA -- a mismatched
+# TLS/HTTP2 fingerprint vs. UA string is itself a Cloudflare bot signal, and
+# was observed keeping every post-rebootstrap retry stuck on 403.
+IMPERSONATE = "chrome131"
 
 HEADERS = {
     "User-Agent": CHROME_UA,
@@ -104,7 +107,12 @@ def _apply_cf_cookies(session: cf_requests.Session) -> None:
 
 
 def _is_cf_challenge(resp) -> bool:
-    return resp.status_code == _CF_CHALLENGE_STATUS and resp.headers.get("Cf-Mitigated") == "challenge"
+    # KSP's WAF doesn't consistently attach a Cf-Mitigated: challenge header
+    # to a blocked response (observed in production: plain 403s with no such
+    # header), so any 403 from this API is treated as a Cloudflare block --
+    # a stale/expired/never-accepted challenge cookie -- rather than a
+    # genuine application-level 403.
+    return resp.status_code == _CF_CHALLENGE_STATUS
 
 
 def make_session() -> cf_requests.Session:
@@ -116,10 +124,29 @@ def make_session() -> cf_requests.Session:
 
 def _get(session: cf_requests.Session, url: str, params: dict, timeout: float):
     rebootstrapped = False
+    resp = None
     for attempt in range(_MAX_RETRIES + 1):
-        resp = session.get(url, params=params, timeout=timeout)
+        try:
+            resp = session.get(url, params=params, timeout=timeout)
+        except cf_requests.exceptions.RequestException as exc:
+            # Covers connection resets/timeouts, which -- like a bare 403 --
+            # can be a symptom of a stale Cloudflare session, so the first
+            # one also gets a re-bootstrap rather than just a plain retry.
+            if not rebootstrapped:
+                log.warning(
+                    "Request error (%s); re-bootstrapping session and retrying", exc
+                )
+                _apply_cf_cookies(session)
+                rebootstrapped = True
+                continue
+            if attempt < _MAX_RETRIES:
+                log.warning("Request error (%s); retrying", exc)
+                time.sleep(_RETRY_BACKOFF_SECONDS * (attempt + 1))
+                continue
+            log.warning("Request error (%s) after re-bootstrap and retries; giving up this cycle", exc)
+            raise
         if _is_cf_challenge(resp) and not rebootstrapped:
-            log.warning("Hit Cloudflare challenge; re-bootstrapping session and retrying")
+            log.warning("Hit Cloudflare 403; re-bootstrapping session and retrying")
             _apply_cf_cookies(session)
             rebootstrapped = True
             continue

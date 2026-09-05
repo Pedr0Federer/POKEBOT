@@ -25,6 +25,8 @@ import threading
 import time
 from datetime import datetime, timezone
 
+from curl_cffi import requests as cf_requests
+
 import ksp_client
 import ksp_monitor
 import notifier
@@ -116,7 +118,19 @@ def loop() -> int:
 
             current_state = state.load_state()
             baseline_total = current_state.get("products_total", 0)
-            live_total = ksp_client.fetch_products_total(session, category_id, search)
+            try:
+                live_total = ksp_client.fetch_products_total(session, category_id, search)
+            except cf_requests.exceptions.RequestException as exc:
+                # ksp_client already re-bootstrapped Cloudflare cookies and
+                # retried once internally; a failure here means that didn't
+                # recover. Don't let it kill the loop -- skip this cycle and
+                # let the next one try again with the (now refreshed) session.
+                log.warning(
+                    "Lightweight check failed after re-bootstrap/retry (%s); "
+                    "skipping this cycle",
+                    exc,
+                )
+                continue
 
             if live_total < baseline_total:
                 # Items went out of stock: rebase the baseline silently, no
