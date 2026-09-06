@@ -108,37 +108,58 @@ log = logging.getLogger("ksp_client")
 
 _BOOTSTRAP_ATTEMPTS = 3
 
+# --disable-blink-features=AutomationControlled keeps navigator.webdriver false.
+_BROWSER_LAUNCH_ARGS = ["--disable-blink-features=AutomationControlled"]
+
+
+def _launch_bootstrap_browser(pw):
+    """Launch a real headless Chrome (channel="chrome") for the Cloudflare
+    handshake. Playwright's *bundled* Chromium is fingerprinted and 403'd by
+    KSP's Cloudflare rule on the m_action/api endpoints even with a clean UA
+    and a solved challenge; the system Chrome is not. Fall back to bundled
+    Chromium only if no system Chrome is installed."""
+    try:
+        return pw.chromium.launch(
+            headless=True, channel="chrome", args=_BROWSER_LAUNCH_ARGS
+        )
+    except Exception as exc:
+        log.warning(
+            "channel=chrome unavailable (%s); using bundled Chromium -- Cloudflare "
+            "is likely to 403 the API calls",
+            exc,
+        )
+        return pw.chromium.launch(headless=True, args=_BROWSER_LAUNCH_ARGS)
+
+
+def _new_clean_page(browser):
+    """A new page whose User-Agent never contains the "HeadlessChrome" token --
+    Cloudflare 403s that token on sight, so the challenge can never clear while
+    it's present. The Chrome major version is left as the browser reports it."""
+    page = browser.new_page()
+    raw_ua = page.evaluate("() => navigator.userAgent")
+    if "HeadlessChrome" in (raw_ua or ""):
+        clean_ua = raw_ua.replace("HeadlessChrome", "Chrome")
+        log.info("Overriding bootstrap User-Agent %r -> %r", raw_ua, clean_ua)
+        page.close()
+        page = browser.new_page(user_agent=clean_ua)
+    return page
+
 
 def _bootstrap_cf_cookies() -> tuple[list[dict], str | None]:
-    """Load the KSP homepage in a headless browser to clear the Cloudflare
+    """Load the KSP category page in a headless browser to clear the Cloudflare
     JS challenge, and return (cookie jar, the browser's own real User-Agent).
 
-    The only identity detail forced onto the browser is stripping the
-    "HeadlessChrome" token Playwright's bundled Chromium puts in its
-    User-Agent -- Cloudflare 403s that token on sight, so the challenge can
-    never clear while it's present. Everything else (JS engine capabilities,
-    the Chrome major version) is left as the real browser reports it; the
-    curl_cffi handoff picks the closest deliverable impersonation target from
-    the reported UA rather than forwarding it verbatim (see _nearest_impersonate).
+    The curl_cffi handoff picks the closest deliverable impersonation target
+    from the reported UA rather than forwarding it verbatim (see
+    _nearest_impersonate).
     """
     from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as p:
-        # --disable-blink-features=AutomationControlled keeps navigator.webdriver
-        # false; the UA override below removes the "HeadlessChrome" token that
-        # Cloudflare rejects outright.
-        browser = p.chromium.launch(
-            headless=True, args=["--disable-blink-features=AutomationControlled"]
-        )
+        browser = _launch_bootstrap_browser(p)
         try:
-            page = browser.new_page()
-            raw_ua = page.evaluate("() => navigator.userAgent")
-            if "HeadlessChrome" in (raw_ua or ""):
-                clean_ua = raw_ua.replace("HeadlessChrome", "Chrome")
-                log.info("Overriding bootstrap User-Agent %r -> %r", raw_ua, clean_ua)
-                page.close()
-                page = browser.new_page(user_agent=clean_ua)
+            page = _new_clean_page(browser)
             for attempt in range(_BOOTSTRAP_ATTEMPTS):
                 try:
                     resp = page.goto(
@@ -219,11 +240,206 @@ def _is_cf_challenge(resp) -> bool:
 def make_session() -> cf_requests.Session:
     session = cf_requests.Session(impersonate=_DEFAULT_IMPERSONATE)
     session.headers.update(_build_headers(_DEFAULT_IMPERSONATE))
-    _apply_cf_cookies(session)
+    # Once the process has proven curl_cffi is JA4-blocked and switched to the
+    # browser transport, skip the (now pointless) cookie bootstrap -- and, more
+    # importantly, don't spin up a second Playwright instance alongside the
+    # long-lived one the transport holds.
+    if not _curl_cffi_blocked:
+        _apply_cf_cookies(session)
     return session
 
 
+# ---------------------------------------------------------------------------
+# Transport
+#
+# Primary path is curl_cffi with a real-Chrome-minted cf_clearance and the
+# browser's exact User-Agent (see _apply_cf_cookies) -- that combination
+# currently clears Cloudflare on the m_action/api endpoints.
+#
+# Fallback: during a stricter Cloudflare period in this category's history,
+# curl_cffi's TLS/JA4 fingerprint was rejected outright -- every impersonate
+# target 403'd even with an exact-UA, freshly minted cookie -- while a genuine
+# Chrome issuing the request itself still got 200. _BrowserTransport parks one
+# real headless Chrome on the KSP category origin and runs the API calls
+# through its in-page fetch(), so they carry Chrome's real fingerprint and
+# challenge-cleared cookies. _get switches this process to it the first time
+# curl_cffi comes back Cloudflare-challenged after a re-bootstrap, and stays
+# switched for the life of the process.
+# ---------------------------------------------------------------------------
+
+_curl_cffi_blocked = False
+_browser_transport = None
+
+_BROWSER_FETCH_JS = """
+async ({ url, timeoutMs }) => {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+    try {
+        const r = await fetch(url, {
+            headers: { 'Accept': '*/*', 'lang': 'he' },
+            credentials: 'include',
+            signal: ctrl.signal,
+        });
+        return { status: r.status, body: await r.text() };
+    } catch (e) {
+        return { status: 0, body: '', error: String(e) };
+    } finally {
+        clearTimeout(timer);
+    }
+}
+"""
+
+
+class _ShimResponse:
+    """Minimal stand-in for a curl_cffi Response, covering the surface the
+    callers here touch: .status_code, .headers, .text, .content, .json(),
+    .raise_for_status()."""
+
+    def __init__(self, status_code: int, text: str):
+        self.status_code = status_code
+        self.text = text
+        self.content = text.encode("utf-8", "replace")
+        self.headers: dict = {}
+
+    def json(self):
+        import json
+
+        return json.loads(self.text)
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise cf_requests.exceptions.HTTPError(
+                f"HTTP Error {self.status_code}: (browser transport)", 0, None
+            )
+
+
+class _BrowserTransport:
+    def __init__(self):
+        from playwright.sync_api import sync_playwright
+
+        self._pw = sync_playwright().start()
+        self._browser = None
+        self._page = None
+        self._start_browser()
+
+    def _start_browser(self):
+        self._browser = _launch_bootstrap_browser(self._pw)
+        self._page = _new_clean_page(self._browser)
+        self._warmup()
+
+    def _warmup(self):
+        from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+
+        try:
+            self._page.goto(
+                CHALLENGE_WARMUP_URL, timeout=30_000, wait_until="domcontentloaded"
+            )
+        except PlaywrightTimeoutError:
+            log.warning("Browser transport warmup navigation timed out")
+        for _ in range(12):
+            if any(c["name"] == "cf_clearance" for c in self._page.context.cookies()):
+                break
+            self._page.wait_for_timeout(500)
+        log.info(
+            "Browser transport ready (UA=%r, cookies=%s)",
+            self._page.evaluate("() => navigator.userAgent"),
+            [c["name"] for c in self._page.context.cookies()],
+        )
+
+    def _restart(self):
+        try:
+            self._browser.close()
+        except Exception:
+            pass
+        self._start_browser()
+
+    def get(self, url: str, params: dict, timeout: float) -> _ShimResponse:
+        from urllib.parse import urlencode
+
+        full = f"{url}?{urlencode(params)}" if params else url
+        result = None
+        for attempt in range(2):
+            try:
+                result = self._page.evaluate(
+                    _BROWSER_FETCH_JS,
+                    {"url": full, "timeoutMs": int(timeout * 1000)},
+                )
+            except Exception as exc:
+                if attempt == 0:
+                    log.warning(
+                        "Browser transport page error (%s); restarting browser", exc
+                    )
+                    self._restart()
+                    continue
+                raise cf_requests.exceptions.RequestException(
+                    f"browser transport failed: {exc}"
+                )
+            status = result.get("status", 0)
+            if status == 0 and attempt == 0:
+                log.warning(
+                    "Browser fetch failed (%s); re-warming and retrying",
+                    result.get("error"),
+                )
+                self._warmup()
+                continue
+            if status == 0:
+                raise cf_requests.exceptions.RequestException(
+                    f"browser fetch failed: {result.get('error')}"
+                )
+            if status == _CF_CHALLENGE_STATUS and attempt == 0:
+                log.warning("Browser fetch hit %s; re-warming challenge and retrying", status)
+                self._warmup()
+                continue
+            return _ShimResponse(status, result.get("body", ""))
+        return _ShimResponse(result.get("status", 0), result.get("body", ""))
+
+    def close(self):
+        try:
+            if self._browser:
+                self._browser.close()
+        finally:
+            try:
+                self._pw.stop()
+            except Exception:
+                pass
+
+
+def _get_browser_transport() -> _BrowserTransport:
+    global _browser_transport
+    if _browser_transport is None:
+        import atexit
+
+        log.info("Starting browser transport (real headless Chrome) for KSP API calls")
+        _browser_transport = _BrowserTransport()
+        atexit.register(_browser_transport.close)
+    return _browser_transport
+
+
 def _get(session: cf_requests.Session, url: str, params: dict, timeout: float):
+    global _curl_cffi_blocked
+    if not _curl_cffi_blocked:
+        resp = _curl_get(session, url, params, timeout)
+        if resp is not None and not _is_cf_challenge(resp):
+            return resp
+        if resp is not None:
+            # An actual Cloudflare challenge that survived a re-bootstrap: the
+            # TLS fingerprint is blocked, re-trying curl_cffi won't help, so
+            # commit this process to the browser transport.
+            log.warning(
+                "curl_cffi still Cloudflare-challenged after re-bootstrap; switching "
+                "this process to the browser transport for KSP API calls"
+            )
+            _curl_cffi_blocked = True
+        else:
+            log.warning("curl_cffi errored out; using the browser transport for this call")
+    return _get_browser_transport().get(url, params, timeout)
+
+
+def _curl_get(session: cf_requests.Session, url: str, params: dict, timeout: float):
+    """The curl_cffi path: try, re-bootstrap once on a Cloudflare 403 or a
+    connection error, retry transient upstream statuses. Returns the final
+    response (which may still be a 403), or None if the session kept erroring
+    even after a re-bootstrap -- the caller then falls back to the browser."""
     rebootstrapped = False
     resp = None
     for attempt in range(_MAX_RETRIES + 1):
@@ -244,8 +460,11 @@ def _get(session: cf_requests.Session, url: str, params: dict, timeout: float):
                 log.warning("Request error (%s); retrying", exc)
                 time.sleep(_RETRY_BACKOFF_SECONDS * (attempt + 1))
                 continue
-            log.warning("Request error (%s) after re-bootstrap and retries; giving up this cycle", exc)
-            raise
+            log.warning(
+                "Request error (%s) after re-bootstrap and retries; giving up on curl_cffi",
+                exc,
+            )
+            return None
         if _is_cf_challenge(resp) and not rebootstrapped:
             log.warning("Hit Cloudflare 403; re-bootstrapping session and retrying")
             _apply_cf_cookies(session)
