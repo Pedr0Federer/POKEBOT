@@ -21,7 +21,11 @@ from curl_cffi import requests as cf_requests
 API_BASE = "https://ksp.co.il/m_action/api/category"
 ITEM_API_TEMPLATE = "https://ksp.co.il/m_action/api/item/{uin}"
 ITEM_URL_TEMPLATE = "https://ksp.co.il/web/item/{uin}"
-CHALLENGE_WARMUP_URL = "https://ksp.co.il/web/"
+# Warm up on the category listing page rather than the bare homepage so the
+# challenge is solved (and cf_clearance minted) in the same URL scope the
+# m_action/api/category calls are made from. Keep in sync with config.json's
+# category_id / search.
+CHALLENGE_WARMUP_URL = "https://ksp.co.il/web/cat/32394?search=pokemon%20tcg"
 
 # curl_cffi's impersonation profiles are pre-baked per Chrome major version and
 # don't track the latest installed Chrome release, so the bootstrap browser's
@@ -185,13 +189,20 @@ def _apply_cf_cookies(session: cf_requests.Session) -> None:
     )
     match = _UA_MAJOR_RE.search(browser_user_agent or "")
     impersonate = _nearest_impersonate(int(match.group(1)) if match else None)
-    if impersonate != session.impersonate:
-        log.info(
-            "Switching session impersonation target to %s (nearest match for bootstrap browser)",
-            impersonate,
-        )
-        session.impersonate = impersonate
-        session.headers.update(_build_headers(impersonate))
+    log.info(
+        "Session impersonation target %s (nearest curl_cffi match for bootstrap browser)",
+        impersonate,
+    )
+    session.impersonate = impersonate
+    headers = _build_headers(impersonate)
+    if browser_user_agent:
+        # Cloudflare binds cf_clearance to the exact User-Agent string of the
+        # browser that solved the challenge -- a single character's difference
+        # invalidates the cookie. Send the captured UA verbatim rather than the
+        # synthetic one _build_headers derives from the (only nearest) impersonate
+        # target.
+        headers["User-Agent"] = browser_user_agent
+    session.headers.update(headers)
     for cookie in cookies:
         session.cookies.set(cookie["name"], cookie["value"], domain=cookie["domain"], path=cookie["path"])
 
