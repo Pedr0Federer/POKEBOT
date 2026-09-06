@@ -13,6 +13,7 @@ and retrying once.
 
 import logging
 import random
+import re
 import time
 
 from curl_cffi import requests as cf_requests
@@ -22,22 +23,65 @@ ITEM_API_TEMPLATE = "https://ksp.co.il/m_action/api/item/{uin}"
 ITEM_URL_TEMPLATE = "https://ksp.co.il/web/item/{uin}"
 CHALLENGE_WARMUP_URL = "https://ksp.co.il/web/"
 
-CHROME_UA = (
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
-)
-# Must match the Chrome version claimed in CHROME_UA -- a mismatched
-# TLS/HTTP2 fingerprint vs. UA string is itself a Cloudflare bot signal, and
+# curl_cffi's impersonation profiles are pre-baked per Chrome major version and
+# don't track the latest installed Chrome release, so the bootstrap browser's
+# real version (whatever Playwright/Chrome happens to be) usually has no exact
+# match. Rather than claim a version curl_cffi's TLS/HTTP2 layer can't actually
+# back up, _nearest_impersonate picks the closest *available* target at or
+# below the bootstrap's real major version, and the header User-Agent is built
+# to match that chosen target exactly -- keeping TLS fingerprint, Sec-Ch-Ua,
+# and User-Agent all internally consistent with each other. A previous version
+# pinned User-Agent to a hardcoded "131" while IMPERSONATE claimed "chrome124"
+# and left Sec-Ch-Ua-Platform at curl_cffi's default "macOS" on a Windows UA
+# string -- a three-way inconsistency that's an easy bot-detection signal, and
 # was observed keeping every post-rebootstrap retry stuck on 403.
-IMPERSONATE = "chrome131"
+_CURL_CFFI_CHROME_MAJORS = [99, 100, 101, 104, 107, 110, 116, 119, 120, 123, 124, 131, 133, 136, 142, 145, 146]
+_DEFAULT_IMPERSONATE = "chrome131"
 
-HEADERS = {
-    "User-Agent": CHROME_UA,
-    "Accept": "application/json",
-    "Accept-Language": "he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7",
-    "Referer": "https://ksp.co.il/web/",
-    "Origin": "https://ksp.co.il",
-}
+_UA_MAJOR_RE = re.compile(r"Chrome/(\d+)")
+
+
+def _nearest_impersonate(major_version: int | None) -> str:
+    if major_version is None:
+        return _DEFAULT_IMPERSONATE
+    candidates = [m for m in _CURL_CFFI_CHROME_MAJORS if m <= major_version]
+    chosen = max(candidates) if candidates else min(_CURL_CFFI_CHROME_MAJORS)
+    return f"chrome{chosen}"
+
+
+def _build_headers(impersonate: str) -> dict:
+    major = impersonate.removeprefix("chrome")
+    user_agent = (
+        f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        f"(KHTML, like Gecko) Chrome/{major}.0.0.0 Safari/537.36"
+    )
+    return {
+        "User-Agent": user_agent,
+        # A real browser's fetch()/XHR call to this JSON API sends Accept: */*,
+        # not the document-navigation Accept curl_cffi's impersonate profile
+        # defaults to.
+        "Accept": "*/*",
+        "Accept-Language": "he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7",
+        "Referer": "https://ksp.co.il/web/",
+        "Origin": "https://ksp.co.il",
+        "lang": "he",
+        # curl_cffi's impersonate profile defaults these to "macOS" and to
+        # document-navigation values (Sec-Fetch-Dest: document, Mode: navigate,
+        # Site: none); overridden here to match this session's real platform
+        # (Windows) and an actual same-origin JSON fetch call instead.
+        "sec-ch-ua-platform": '"Windows"',
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-origin",
+        "priority": "u=1, i",
+    }
+
+
+# Back-compat module constants for out-of-tree callers (e.g. scripts/
+# test_connection_probe.py) that import these directly.
+IMPERSONATE = _DEFAULT_IMPERSONATE
+CHROME_UA = _build_headers(_DEFAULT_IMPERSONATE)["User-Agent"]
+HEADERS = _build_headers(_DEFAULT_IMPERSONATE)
 
 REQUEST_TIMEOUT = 20
 PAGE_JITTER_RANGE = (0.5, 1.5)
@@ -61,16 +105,24 @@ log = logging.getLogger("ksp_client")
 _BOOTSTRAP_ATTEMPTS = 3
 
 
-def _bootstrap_cf_cookies() -> list[dict]:
+def _bootstrap_cf_cookies() -> tuple[list[dict], str | None]:
     """Load the KSP homepage in a headless browser to clear the Cloudflare
-    JS challenge, and return the resulting cookie jar."""
+    JS challenge, and return (cookie jar, the browser's own real User-Agent).
+
+    Deliberately does not override the page's User-Agent -- forcing a spoofed
+    identity onto the browser itself makes the JS engine's real capabilities
+    inconsistent with what it claims in headers, which is its own detection
+    signal. The curl_cffi handoff picks the closest deliverable impersonation
+    target from the reported UA rather than forwarding it verbatim (see
+    _nearest_impersonate).
+    """
     from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         try:
-            page = browser.new_page(user_agent=CHROME_UA)
+            page = browser.new_page()
             for attempt in range(_BOOTSTRAP_ATTEMPTS):
                 try:
                     resp = page.goto(
@@ -80,6 +132,14 @@ def _bootstrap_cf_cookies() -> list[dict]:
                     log.warning("Bootstrap attempt %d: navigation timed out", attempt + 1)
                     time.sleep(3)
                     continue
+                # Cloudflare's JS challenge runs after DOMContentLoaded and sets the
+                # cf_clearance cookie asynchronously; poll for it briefly instead of
+                # returning immediately with a pre-challenge cookie jar (KSP never
+                # goes network-idle, so we can't just wait on that).
+                for _ in range(8):
+                    if any(c["name"] == "cf_clearance" for c in page.context.cookies()):
+                        break
+                    page.wait_for_timeout(500)
                 status = resp.status if resp else None
                 cf_mitigated = resp.headers.get("cf-mitigated") if resp else None
                 title = page.title()
@@ -92,17 +152,35 @@ def _bootstrap_cf_cookies() -> list[dict]:
                     len(page.content()),
                 )
                 if status == 200 and not cf_mitigated:
-                    return page.context.cookies()
+                    user_agent = page.evaluate("() => navigator.userAgent")
+                    return page.context.cookies(), user_agent
                 time.sleep(3)
             log.warning("Cloudflare challenge did not clear after %d attempts", _BOOTSTRAP_ATTEMPTS)
-            return page.context.cookies()
+            user_agent = page.evaluate("() => navigator.userAgent")
+            return page.context.cookies(), user_agent
         finally:
             browser.close()
 
 
 def _apply_cf_cookies(session: cf_requests.Session) -> None:
     log.info("Bootstrapping Cloudflare challenge cookies via headless browser")
-    for cookie in _bootstrap_cf_cookies():
+    cookies, browser_user_agent = _bootstrap_cf_cookies()
+    log.info(
+        "Bootstrap browser User-Agent: %r; captured %d cookies: %s",
+        browser_user_agent,
+        len(cookies),
+        [c["name"] for c in cookies],
+    )
+    match = _UA_MAJOR_RE.search(browser_user_agent or "")
+    impersonate = _nearest_impersonate(int(match.group(1)) if match else None)
+    if impersonate != session.impersonate:
+        log.info(
+            "Switching session impersonation target to %s (nearest match for bootstrap browser)",
+            impersonate,
+        )
+        session.impersonate = impersonate
+        session.headers.update(_build_headers(impersonate))
+    for cookie in cookies:
         session.cookies.set(cookie["name"], cookie["value"], domain=cookie["domain"], path=cookie["path"])
 
 
@@ -116,8 +194,8 @@ def _is_cf_challenge(resp) -> bool:
 
 
 def make_session() -> cf_requests.Session:
-    session = cf_requests.Session(impersonate=IMPERSONATE)
-    session.headers.update(HEADERS)
+    session = cf_requests.Session(impersonate=_DEFAULT_IMPERSONATE)
+    session.headers.update(_build_headers(_DEFAULT_IMPERSONATE))
     _apply_cf_cookies(session)
     return session
 
