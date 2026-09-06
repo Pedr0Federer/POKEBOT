@@ -109,20 +109,32 @@ def _bootstrap_cf_cookies() -> tuple[list[dict], str | None]:
     """Load the KSP homepage in a headless browser to clear the Cloudflare
     JS challenge, and return (cookie jar, the browser's own real User-Agent).
 
-    Deliberately does not override the page's User-Agent -- forcing a spoofed
-    identity onto the browser itself makes the JS engine's real capabilities
-    inconsistent with what it claims in headers, which is its own detection
-    signal. The curl_cffi handoff picks the closest deliverable impersonation
-    target from the reported UA rather than forwarding it verbatim (see
-    _nearest_impersonate).
+    The only identity detail forced onto the browser is stripping the
+    "HeadlessChrome" token Playwright's bundled Chromium puts in its
+    User-Agent -- Cloudflare 403s that token on sight, so the challenge can
+    never clear while it's present. Everything else (JS engine capabilities,
+    the Chrome major version) is left as the real browser reports it; the
+    curl_cffi handoff picks the closest deliverable impersonation target from
+    the reported UA rather than forwarding it verbatim (see _nearest_impersonate).
     """
     from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        # --disable-blink-features=AutomationControlled keeps navigator.webdriver
+        # false; the UA override below removes the "HeadlessChrome" token that
+        # Cloudflare rejects outright.
+        browser = p.chromium.launch(
+            headless=True, args=["--disable-blink-features=AutomationControlled"]
+        )
         try:
             page = browser.new_page()
+            raw_ua = page.evaluate("() => navigator.userAgent")
+            if "HeadlessChrome" in (raw_ua or ""):
+                clean_ua = raw_ua.replace("HeadlessChrome", "Chrome")
+                log.info("Overriding bootstrap User-Agent %r -> %r", raw_ua, clean_ua)
+                page.close()
+                page = browser.new_page(user_agent=clean_ua)
             for attempt in range(_BOOTSTRAP_ATTEMPTS):
                 try:
                     resp = page.goto(
