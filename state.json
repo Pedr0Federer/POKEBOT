@@ -17,20 +17,20 @@
       "url": "https://ksp.co.il/web/item/474004",
       "missing_streak": 0
     },
-    "481354": {
-      "uin": 481354,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Pack",
-      "price": 29,
-      "img": "https://ksp.co.il/shop/items/481354.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/481354",
-      "missing_streak": 0
-    },
     "486551": {
       "uin": 486551,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Booster Pack",
       "price": 29,
       "img": "https://ksp.co.il/shop/items/486551.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486551",
+      "missing_streak": 0
+    },
+    "481354": {
+      "uin": 481354,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Pack",
+      "price": 29,
+      "img": "https://ksp.co.il/shop/items/481354.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/481354",
       "missing_streak": 0
     },
     "485989": {
@@ -257,20 +257,20 @@
       "url": "https://ksp.co.il/web/item/395402",
       "missing_streak": 0
     },
-    "278260": {
-      "uin": 278260,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: ex Battle Deck (Tinkaton ex)",
-      "price": 89,
-      "img": "https://ksp.co.il/shop/items/278260.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/278260",
-      "missing_streak": 0
-    },
     "486556": {
       "uin": 486556,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME: Perfect Order - Art Set",
       "price": 89,
       "img": "https://ksp.co.il/shop/items/486556.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486556",
+      "missing_streak": 0
+    },
+    "278260": {
+      "uin": 278260,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: ex Battle Deck (Tinkaton ex)",
+      "price": 89,
+      "img": "https://ksp.co.il/shop/items/278260.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/278260",
       "missing_streak": 0
     },
     "278243": {
@@ -409,20 +409,20 @@
       "url": "https://ksp.co.il/web/item/379299",
       "missing_streak": 0
     },
-    "379302": {
-      "uin": 379302,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - ופוריאון",
-      "price": 119,
-      "img": "https://ksp.co.il/shop/items/379302.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/379302",
-      "missing_streak": 0
-    },
     "379303": {
       "uin": 379303,
       "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - ליפיאון",
       "price": 119,
       "img": "https://ksp.co.il/shop/items/379303.jpg?v=5",
       "url": "https://ksp.co.il/web/item/379303",
+      "missing_streak": 0
+    },
+    "379302": {
+      "uin": 379302,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - ופוריאון",
+      "price": 119,
+      "img": "https://ksp.co.il/shop/items/379302.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/379302",
       "missing_streak": 0
     },
     "474331": {
@@ -1225,20 +1225,20 @@
       "url": "https://ksp.co.il/web/item/474231",
       "missing_streak": 0
     },
-    "395503": {
-      "uin": 395503,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: 25th Anniversary Collection (Japanese) Booster Box - מארז 16 חפיסות",
-      "price": 2300,
-      "img": "https://ksp.co.il/shop/items/395503.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/395503",
-      "missing_streak": 0
-    },
     "478955": {
       "uin": 478955,
       "title": "קלפי אספנות פוקימון Pokemon TCG Sword & Shield: Precious Collector Box (Japanese)",
       "price": 2300,
       "img": "https://ksp.co.il/shop/items/478955.jpg?v=5",
       "url": "https://ksp.co.il/web/item/478955",
+      "missing_streak": 0
+    },
+    "395503": {
+      "uin": 395503,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: 25th Anniversary Collection (Japanese) Booster Box - מארז 16 חפיסות",
+      "price": 2300,
+      "img": "https://ksp.co.il/shop/items/395503.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/395503",
       "missing_streak": 0
     },
     "459674": {
@@ -1865,6 +1865,6 @@
     "380042": "2026-09-06T18:57:46.012390+00:00",
     "395327": "2026-09-08T12:52:35.383158+00:00"
   },
-  "last_checked": "2026-09-09T18:26:01.535538+00:00",
+  "last_checked": "2026-09-09T18:31:59.680377+00:00",
   "mute_until": null
 }
