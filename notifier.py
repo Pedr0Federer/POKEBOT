@@ -11,8 +11,8 @@ log = logging.getLogger("notifier")
 
 TELEGRAM_API_BASE = "https://api.telegram.org/bot{token}/{method}"
 
-NEW_ITEM_PREFIX = "\U0001F6A8 [NEW]"
-RESTOCK_PREFIX = "\U0001F504 [RESTOCK]"
+NEW_ITEM_PREFIX = "\U0001F6A8 [חדש]"
+RESTOCK_PREFIX = "\U0001F504 [חזר למלאי]"
 OUTLET_PREFIX = "\U0001F3F7" + "️" + " [מציאון]"
 
 # --- Persistent bottom menu (ReplyKeyboardMarkup) --------------------------
@@ -73,7 +73,7 @@ def _build_caption(
 ) -> str:
     prefix = _choose_prefix(item, is_restock)
     title = _clean_title(item["title"])
-    lines = [f"{prefix} {title}", f"Price: ₪{item['price']}", item["url"]]
+    lines = [f"{prefix} {title}", f"מחיר: ₪{item['price']}", item["url"]]
     if products_total is not None:
         delta_str = f"+{total_delta}" if total_delta and total_delta > 0 else "0"
         lines.append(f"\U0001F4E6 מוצרים במלאי: {products_total} ({delta_str} מסריקה קודמת)")
