@@ -11,6 +11,7 @@ request will get the challenge page again; that's handled by re-bootstrapping
 and retrying once.
 """
 
+import html
 import logging
 import random
 import re
@@ -554,13 +555,49 @@ def check_item_in_stock(session: cf_requests.Session, uin: int) -> bool | None:
         return None
 
 
+# KSP's own outlet/surplus line -- heavily discounted open-box or
+# customer-returned items -- gets flagged in the title and/or tags with one
+# of these (case-insensitive; the Hebrew terms have no case, so only
+# "outlet" is actually affected by the lowercasing).
+_OUTLET_KEYWORDS = ("מציאון", "עודפים", "outlet")
+
+
+def _contains_outlet_keyword(text: str) -> bool:
+    return any(keyword in text.lower() for keyword in _OUTLET_KEYWORDS)
+
+
+def _is_outlet_item(raw: dict, title: str) -> bool:
+    """True if the title, category tags, or tag labels mark this item as
+    part of KSP's מציאון ועודפים (outlet/surplus) line."""
+    if _contains_outlet_keyword(title):
+        return True
+    tags = raw.get("tags")
+    if isinstance(tags, dict) and any(
+        _contains_outlet_keyword(str(k)) or _contains_outlet_keyword(str(v))
+        for k, v in tags.items()
+    ):
+        return True
+    for tag in raw.get("tags_data") or []:
+        if _contains_outlet_keyword(str(tag.get("hebrew_title", ""))):
+            return True
+    for label in raw.get("labels") or []:
+        text = label.get("text") if isinstance(label, dict) else label
+        if text and _contains_outlet_keyword(str(text)):
+            return True
+    return False
+
+
 def _collect(items: dict[int, dict], raw_items: list[dict]) -> None:
     for raw in raw_items:
         uin = raw["uin"]
+        # KSP titles carry HTML entities (e.g. "&colon;" for ":") straight
+        # through the JSON API rather than pre-decoding them.
+        title = html.unescape(raw.get("name", "")).strip()
         items[uin] = {
             "uin": uin,
-            "title": raw.get("name", "").strip(),
+            "title": title,
             "price": raw.get("price"),
             "img": raw.get("img"),
             "url": ITEM_URL_TEMPLATE.format(uin=uin),
+            "is_outlet": _is_outlet_item(raw, title),
         }

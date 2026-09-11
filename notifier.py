@@ -13,6 +13,7 @@ TELEGRAM_API_BASE = "https://api.telegram.org/bot{token}/{method}"
 
 NEW_ITEM_PREFIX = "\U0001F6A8 [NEW]"
 RESTOCK_PREFIX = "\U0001F504 [RESTOCK]"
+OUTLET_PREFIX = "\U0001F3F7" + "️" + " [מציאון]"
 
 # --- Persistent bottom menu (ReplyKeyboardMarkup) --------------------------
 # telegram_listener.py matches an incoming message's text against these
@@ -54,13 +55,24 @@ def _clean_title(title: str) -> str:
     return no_hebrew or title.strip()
 
 
+def _choose_prefix(item: dict, is_restock: bool) -> str:
+    # Restock takes priority over outlet -- an outlet item coming back into
+    # stock after a long absence is still more notable as a [RESTOCK] than
+    # as [OUTLET].
+    if is_restock:
+        return RESTOCK_PREFIX
+    if item.get("is_outlet"):
+        return OUTLET_PREFIX
+    return NEW_ITEM_PREFIX
+
+
 def _build_caption(
     item: dict,
     is_restock: bool,
     products_total: int | None = None,
     total_delta: int | None = None,
 ) -> str:
-    prefix = RESTOCK_PREFIX if is_restock else NEW_ITEM_PREFIX
+    prefix = _choose_prefix(item, is_restock)
     title = _clean_title(item["title"])
     lines = [f"{prefix} {title}", f"Price: ₪{item['price']}", item["url"]]
     if products_total is not None:
@@ -101,7 +113,7 @@ def send_windows_toast(item: dict, is_restock: bool = False) -> bool:
         log.warning("winotify not installed; skipping Windows toast")
         return False
 
-    prefix = RESTOCK_PREFIX if is_restock else NEW_ITEM_PREFIX
+    prefix = _choose_prefix(item, is_restock)
     title = _clean_title(item["title"])
     try:
         toast = Notification(
