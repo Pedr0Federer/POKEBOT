@@ -73,11 +73,18 @@ def _build_caption(
 ) -> str:
     prefix = _choose_prefix(item, is_restock)
     title = _clean_title(item["title"])
-    lines = [f"{prefix} {title}", f"מחיר: ₪{item['price']}", item["url"]]
+    lines = [f"{prefix} {title}", f"מחיר: ₪{item['price']}"]
     if products_total is not None:
         delta_str = f"+{total_delta}" if total_delta and total_delta > 0 else "0"
         lines.append(f"\U0001F4E6 מוצרים במלאי: {products_total} ({delta_str} מסריקה קודמת)")
     return "\n".join(lines)
+
+
+BUY_BUTTON_TEXT = "↗️ מעבר לרכישה ישירה ב-KSP \U0001F6D2"
+
+
+def _buy_button_markup(url: str) -> dict:
+    return {"inline_keyboard": [[{"text": BUY_BUTTON_TEXT, "url": url}]]}
 
 
 def send_telegram(
@@ -89,13 +96,19 @@ def send_telegram(
     total_delta: int | None = None,
 ) -> bool:
     caption = _build_caption(item, is_restock, products_total, total_delta)
+    reply_markup = _buy_button_markup(item["url"])
     try:
         if item.get("img"):
             url = TELEGRAM_API_BASE.format(token=bot_token, method="sendPhoto")
-            payload = {"chat_id": chat_id, "photo": item["img"], "caption": caption}
+            payload = {
+                "chat_id": chat_id,
+                "photo": item["img"],
+                "caption": caption,
+                "reply_markup": reply_markup,
+            }
         else:
             url = TELEGRAM_API_BASE.format(token=bot_token, method="sendMessage")
-            payload = {"chat_id": chat_id, "text": caption}
+            payload = {"chat_id": chat_id, "text": caption, "reply_markup": reply_markup}
 
         resp = requests.post(url, json=payload, timeout=15)
         resp.raise_for_status()
