@@ -56,13 +56,12 @@ def _clean_title(title: str) -> str:
 
 
 def _choose_prefix(item: dict, is_restock: bool) -> str:
-    # Restock takes priority over outlet -- an outlet item coming back into
-    # stock after a long absence is still more notable as a [RESTOCK] than
-    # as [OUTLET].
-    if is_restock:
-        return RESTOCK_PREFIX
+    # Outlet takes priority over restock -- an outlet item coming back into
+    # stock is still an [OUTLET] listing, not a regular [RESTOCK].
     if item.get("is_outlet"):
         return OUTLET_PREFIX
+    if is_restock:
+        return RESTOCK_PREFIX
     return NEW_ITEM_PREFIX
 
 
