@@ -73,15 +73,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "376131": {
-      "uin": 376131,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together Booster Pack - עשרה קלפים בחפיסה",
-      "price": 35,
-      "img": "https://ksp.co.il/shop/items/376131.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/376131",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "314561": {
       "uin": 314561,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Twilight Masquerade Booster",
@@ -91,12 +82,12 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "485983": {
-      "uin": 485983,
-      "title": "קלפי אספנות פוקימון Luxray - Pokemon TCG ME05: Pitch Black - Premium Checklane",
-      "price": 39,
-      "img": "https://ksp.co.il/shop/items/485983.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/485983",
+    "376131": {
+      "uin": 376131,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together Booster Pack - עשרה קלפים בחפיסה",
+      "price": 35,
+      "img": "https://ksp.co.il/shop/items/376131.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/376131",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -106,6 +97,15 @@
       "price": 39,
       "img": "https://ksp.co.il/shop/items/186593.jpg?v=5",
       "url": "https://ksp.co.il/web/item/186593",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "485983": {
+      "uin": 485983,
+      "title": "קלפי אספנות פוקימון Luxray - Pokemon TCG ME05: Pitch Black - Premium Checklane",
+      "price": 39,
+      "img": "https://ksp.co.il/shop/items/485983.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/485983",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -190,21 +190,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "452559": {
-      "uin": 452559,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME02 Mega Evolution: Phantasmal Flames - Booster Pack - עשרה קלפים בחפיסה",
-      "price": 49,
-      "img": "https://ksp.co.il/shop/items/452559.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/452559",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "416650": {
       "uin": 416650,
       "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Checklane Premium Blister - מיאוסקראדה",
       "price": 49,
       "img": "https://ksp.co.il/shop/items/416650.jpg?v=5",
       "url": "https://ksp.co.il/web/item/416650",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "452559": {
+      "uin": 452559,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME02 Mega Evolution: Phantasmal Flames - Booster Pack - עשרה קלפים בחפיסה",
+      "price": 49,
+      "img": "https://ksp.co.il/shop/items/452559.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/452559",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -451,24 +451,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "379302": {
-      "uin": 379302,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - ופוריאון",
-      "price": 119,
-      "img": "https://ksp.co.il/shop/items/379302.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/379302",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
-    "379303": {
-      "uin": 379303,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - ליפיאון",
-      "price": 119,
-      "img": "https://ksp.co.il/shop/items/379303.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/379303",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "481361": {
       "uin": 481361,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Pack Art-Set",
@@ -487,12 +469,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "486554": {
-      "uin": 486554,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together - Art Set",
-      "price": 139,
-      "img": "https://ksp.co.il/shop/items/486554.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486554",
+    "379303": {
+      "uin": 379303,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - ליפיאון",
+      "price": 119,
+      "img": "https://ksp.co.il/shop/items/379303.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/379303",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "379302": {
+      "uin": 379302,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - ופוריאון",
+      "price": 119,
+      "img": "https://ksp.co.il/shop/items/379302.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/379302",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -511,6 +502,15 @@
       "price": 129,
       "img": "https://ksp.co.il/shop/items/474177.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474177",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "486554": {
+      "uin": 486554,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together - Art Set",
+      "price": 139,
+      "img": "https://ksp.co.il/shop/items/486554.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486554",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1009,12 +1009,12 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "362716": {
-      "uin": 362716,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together Booster Box - מארז 36 חפיסות",
-      "price": 869,
-      "img": "https://ksp.co.il/shop/items/362716.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/362716",
+    "424277": {
+      "uin": 424277,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Special Box Pokemon Center Fukuoka (Japanese)",
+      "price": 799,
+      "img": "https://ksp.co.il/shop/items/424277.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/424277",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1027,12 +1027,12 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "424277": {
-      "uin": 424277,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Special Box Pokemon Center Fukuoka (Japanese)",
-      "price": 799,
-      "img": "https://ksp.co.il/shop/items/424277.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/424277",
+    "362716": {
+      "uin": 362716,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together Booster Box - מארז 36 חפיסות",
+      "price": 869,
+      "img": "https://ksp.co.il/shop/items/362716.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/362716",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -2044,6 +2044,6 @@
     "407609": "2026-09-11T03:58:33.561136+00:00",
     "417701": "2026-09-11T21:07:07.444301+00:00"
   },
-  "last_checked": "2026-09-12T02:28:07.341038+00:00",
+  "last_checked": "2026-09-12T02:33:49.534085+00:00",
   "mute_until": null
 }
