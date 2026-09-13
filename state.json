@@ -19,21 +19,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "486551": {
-      "uin": 486551,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Booster Pack",
-      "price": 29,
-      "img": "https://ksp.co.il/shop/items/486551.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486551",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "481354": {
       "uin": 481354,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Pack",
       "price": 29,
       "img": "https://ksp.co.il/shop/items/481354.jpg?v=5",
       "url": "https://ksp.co.il/web/item/481354",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "486551": {
+      "uin": 486551,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Booster Pack",
+      "price": 29,
+      "img": "https://ksp.co.il/shop/items/486551.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486551",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -253,15 +253,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "474207": {
-      "uin": 474207,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - מגניום ומיאוסטיק",
-      "price": 74,
-      "img": "https://ksp.co.il/shop/items/474207.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474207",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "474222": {
       "uin": 474222,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - סלמנס וגומי",
@@ -277,6 +268,15 @@
       "price": 74,
       "img": "https://ksp.co.il/shop/items/474221.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474221",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "474207": {
+      "uin": 474207,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - מגניום ומיאוסטיק",
+      "price": 74,
+      "img": "https://ksp.co.il/shop/items/474207.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474207",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -334,21 +334,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "417314": {
-      "uin": 417314,
-      "title": "קלפי אספנות פוקימון Great Ball - Pokemon TCG: Poke Ball Tin Q4 2024",
-      "price": 99,
-      "img": "https://ksp.co.il/shop/items/417314.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/417314",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "472664": {
       "uin": 472664,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - 3-Pack Blister - צ'רמיליון",
       "price": 99,
       "img": "https://ksp.co.il/shop/items/472664.jpg?v=5",
       "url": "https://ksp.co.il/web/item/472664",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "417314": {
+      "uin": 417314,
+      "title": "קלפי אספנות פוקימון Great Ball - Pokemon TCG: Poke Ball Tin Q4 2024",
+      "price": 99,
+      "img": "https://ksp.co.il/shop/items/417314.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/417314",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -406,15 +406,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "379297": {
-      "uin": 379297,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - פלריאון",
-      "price": 119,
-      "img": "https://ksp.co.il/shop/items/379297.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/379297",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "379305": {
       "uin": 379305,
       "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - גלסיאון",
@@ -430,6 +421,15 @@
       "price": 119,
       "img": "https://ksp.co.il/shop/items/379288.jpg?v=5",
       "url": "https://ksp.co.il/web/item/379288",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "379297": {
+      "uin": 379297,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - פלריאון",
+      "price": 119,
+      "img": "https://ksp.co.il/shop/items/379297.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/379297",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -622,15 +622,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "314690": {
-      "uin": 314690,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Armarouge EX Premium Collection",
-      "price": 229,
-      "img": "https://ksp.co.il/shop/items/314690.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/314690",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "390752": {
       "uin": 390752,
       "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Destined Rivals Booster Pack Art Collection",
@@ -640,12 +631,12 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "487832": {
-      "uin": 487832,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection Series 3",
-      "price": 219,
-      "img": "https://ksp.co.il/shop/items/487832.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/487832",
+    "314690": {
+      "uin": 314690,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Armarouge EX Premium Collection",
+      "price": 229,
+      "img": "https://ksp.co.il/shop/items/314690.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/314690",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1054,21 +1045,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "479420": {
-      "uin": 479420,
-      "title": "ערכת אספנות למשחק קלפי פוקימון Pokemon TCG: Trainer’s Toolkit (2021) TCG - מארז המכיל 6 Trainer’s Toolkit (2021) (קייס סגור)",
-      "price": 979,
-      "img": "https://ksp.co.il/shop/items/479420.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/479420",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "464226": {
       "uin": 464226,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME02 Mega Evolution: Phantasmal Flames - Booster Box - מארז 18 חפיסות",
       "price": 849,
       "img": "https://ksp.co.il/shop/items/464226.jpg?v=5",
       "url": "https://ksp.co.il/web/item/464226",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "479420": {
+      "uin": 479420,
+      "title": "ערכת אספנות למשחק קלפי פוקימון Pokemon TCG: Trainer’s Toolkit (2021) TCG - מארז המכיל 6 Trainer’s Toolkit (2021) (קייס סגור)",
+      "price": 979,
+      "img": "https://ksp.co.il/shop/items/479420.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/479420",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1177,15 +1168,6 @@
       "price": 1189,
       "img": "https://ksp.co.il/shop/items/424289.jpg?v=5",
       "url": "https://ksp.co.il/web/item/424289",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
-    "416614": {
-      "uin": 416614,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Booster Box",
-      "price": 1199,
-      "img": "https://ksp.co.il/shop/items/416614.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/416614",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1710,6 +1692,24 @@
       "url": "https://ksp.co.il/web/item/395276",
       "is_outlet": false,
       "missing_streak": 0
+    },
+    "416614": {
+      "uin": 416614,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Booster Box",
+      "price": 1199,
+      "img": "https://ksp.co.il/shop/items/416614.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/416614",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "487832": {
+      "uin": 487832,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection Series 3",
+      "price": 219,
+      "img": "https://ksp.co.il/shop/items/487832.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/487832",
+      "is_outlet": false,
+      "missing_streak": 0
     }
   },
   "all_time_seen_uins": [
@@ -2036,6 +2036,6 @@
     "417701": "2026-09-11T21:07:07.444301+00:00",
     "395402": "2026-09-12T22:39:57.367865+00:00"
   },
-  "last_checked": "2026-09-13T00:17:14.548973+00:00",
+  "last_checked": "2026-09-13T00:23:00.800765+00:00",
   "mute_until": null
 }
