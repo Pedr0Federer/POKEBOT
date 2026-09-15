@@ -38,6 +38,14 @@ DEFAULT_LIGHT_CHECK_INTERVAL_SECONDS = 20
 DEFAULT_RECONCILIATION_INTERVAL_CHECKS = 15  # ~5 min at the default 20s interval
 BACKOFF_AFTER_ERROR_SECONDS = 30
 
+# How many consecutive full-check rechecks to keep actively watching for a
+# pending discrepancy's missing item(s) before giving up and sending the
+# fallback "sync warning". At the default 20s light-check interval this is
+# ~5 minutes -- long enough to ride out the pagination drift/CDN cache lag
+# that routinely clears within 1-3 cycles (see ksp_client's "category may
+# have shifted" warning), instead of giving up after a single retry.
+DISCREPANCY_MAX_ATTEMPTS = 15
+
 MUTEX_NAME = "Global\\KSPPokemonMonitorMutex"
 ERROR_ALREADY_EXISTS = 183
 
@@ -98,8 +106,10 @@ def loop() -> int:
     # Set when a lightweight check sees the site's total counter rise by more
     # than the following full crawl actually turned up -- KSP's CDN sometimes
     # lists the new total a beat before the item itself is paginated. Holds
-    # the still-unexplained item count until the next cycle's recheck either
-    # accounts for it (reconciled) or confirms it's really missing (alerted).
+    # the still-unexplained item count and an attempt counter across
+    # subsequent cycles' full-check rechecks until it's either reconciled
+    # (the item(s) get crawled and alerted normally by run_full_check) or
+    # DISCREPANCY_MAX_ATTEMPTS is exhausted (fallback "sync warning").
     pending_discrepancy = None
 
     while True:
@@ -156,7 +166,12 @@ def loop() -> int:
 
             counter_delta = live_total - baseline_total
             # Re-run even with no fresh delta if a discrepancy is pending --
-            # that's this cycle's grace-period recheck.
+            # that's this cycle's recheck of the still-missing item(s). Any
+            # item that does get crawled this cycle is alerted on normally by
+            # run_full_check itself (its own new_uins diff), whether or not a
+            # discrepancy happens to be pending -- the block below only
+            # tracks whether the gap has closed, it never needs to re-alert
+            # the item itself.
             if counter_delta > 0 or pending_discrepancy is not None:
                 if counter_delta > 0:
                     log.info(
@@ -178,25 +193,40 @@ def loop() -> int:
                 if pending_discrepancy is not None:
                     still_missing = pending_discrepancy["missing_count"] - detected_new
                     if still_missing > 0:
-                        bot_token = config.get("telegram_bot_token", "")
-                        chat_id = config.get("telegram_chat_id", "")
-                        if bot_token and not bot_token.startswith("PASTE_"):
-                            notifier.send_discrepancy_alert(bot_token, chat_id, still_missing)
-                        log.warning(
-                            "Discrepancy alert: %d product(s) still not detected after grace period",
-                            still_missing,
-                        )
+                        pending_discrepancy["missing_count"] = still_missing
+                        pending_discrepancy["attempts"] += 1
+                        if pending_discrepancy["attempts"] >= DISCREPANCY_MAX_ATTEMPTS:
+                            bot_token = config.get("telegram_bot_token", "")
+                            chat_id = config.get("telegram_chat_id", "")
+                            if bot_token and not bot_token.startswith("PASTE_"):
+                                notifier.send_discrepancy_alert(bot_token, chat_id, still_missing)
+                            log.warning(
+                                "Discrepancy alert: %d product(s) still not detected after %d "
+                                "watch cycles; giving up",
+                                still_missing,
+                                pending_discrepancy["attempts"],
+                            )
+                            pending_discrepancy = None
+                        else:
+                            log.info(
+                                "Discrepancy still unresolved: %d product(s) not yet found "
+                                "(watch attempt %d/%d); will keep watching",
+                                still_missing,
+                                pending_discrepancy["attempts"],
+                                DISCREPANCY_MAX_ATTEMPTS,
+                            )
                     else:
                         log.info("Discrepancy reconciled: missing product(s) now accounted for")
-                    pending_discrepancy = None
+                        pending_discrepancy = None
                 elif counter_delta > detected_new:
                     gap = counter_delta - detected_new
-                    pending_discrepancy = {"missing_count": gap}
+                    pending_discrepancy = {"missing_count": gap, "attempts": 1}
                     log.info(
                         "Discrepancy detected: counter rose by %d but only %d new product(s) found; "
-                        "deferring alert for 1 grace cycle",
+                        "watching for up to %d more cycle(s)",
                         counter_delta,
                         detected_new,
+                        DISCREPANCY_MAX_ATTEMPTS - 1,
                     )
 
                 checks_since_reconciliation = 0

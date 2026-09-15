@@ -238,8 +238,16 @@ def run_full_check(config: dict, log: logging.Logger, session=None) -> int:
     updated_out_of_stock_since = update_out_of_stock_since(
         previous_items, current_items, previous_out_of_stock_since, now_iso
     )
+    # A drift correction (or a grace-period keep in merge_items) can add an
+    # item back into merged_items that wasn't part of *this* crawl's raw
+    # products_total, leaving len(merged_items) > products_total. Persisting
+    # the raw crawl-time total in that case understates the counter against
+    # what the site itself reports on the very next lightweight check,
+    # producing a false "counter rose but nothing new found" discrepancy for
+    # a product that was already accounted for.
+    saved_products_total = max(products_total, len(merged_items))
     state.save_state(
-        products_total,
+        saved_products_total,
         merged_items,
         updated_all_time_seen,
         now_iso,
