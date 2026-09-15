@@ -190,21 +190,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "452559": {
-      "uin": 452559,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME02 Mega Evolution: Phantasmal Flames - Booster Pack - עשרה קלפים בחפיסה",
-      "price": 49,
-      "img": "https://ksp.co.il/shop/items/452559.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/452559",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "416650": {
       "uin": 416650,
       "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Checklane Premium Blister - מיאוסקראדה",
       "price": 49,
       "img": "https://ksp.co.il/shop/items/416650.jpg?v=5",
       "url": "https://ksp.co.il/web/item/416650",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "452559": {
+      "uin": 452559,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME02 Mega Evolution: Phantasmal Flames - Booster Pack - עשרה קלפים בחפיסה",
+      "price": 49,
+      "img": "https://ksp.co.il/shop/items/452559.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/452559",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -2022,6 +2022,6 @@
     "474160": "2026-09-14T16:31:14.904819+00:00",
     "496565": "2026-09-14T18:41:38.609641+00:00"
   },
-  "last_checked": "2026-09-15T11:57:39.625023+00:00",
+  "last_checked": "2026-09-15T12:03:27.535900+00:00",
   "mute_until": null
 }
