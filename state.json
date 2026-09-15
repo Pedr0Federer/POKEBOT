@@ -1,5 +1,5 @@
 {
-  "products_total": 197,
+  "products_total": 201,
   "items": {
     "453872": {
       "uin": 453872,
@@ -19,21 +19,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "481354": {
-      "uin": 481354,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Pack",
-      "price": 29,
-      "img": "https://ksp.co.il/shop/items/481354.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/481354",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "486551": {
       "uin": 486551,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Booster Pack",
       "price": 29,
       "img": "https://ksp.co.il/shop/items/486551.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486551",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "481354": {
+      "uin": 481354,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Pack",
+      "price": 29,
+      "img": "https://ksp.co.il/shop/items/481354.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/481354",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -55,21 +55,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "453883": {
-      "uin": 453883,
-      "title": "קלפי אספנות פוקימון Makuhita - Pokemon TCG ME03: Perfect Order Single Pack Checklane",
-      "price": 35,
-      "img": "https://ksp.co.il/shop/items/453883.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/453883",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "314427": {
       "uin": 314427,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Temporal Forces Booster - עשרה קלפים בחפיסה",
       "price": 35,
       "img": "https://ksp.co.il/shop/items/314427.jpg?v=5",
       "url": "https://ksp.co.il/web/item/314427",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "453883": {
+      "uin": 453883,
+      "title": "קלפי אספנות פוקימון Makuhita - Pokemon TCG ME03: Perfect Order Single Pack Checklane",
+      "price": 35,
+      "img": "https://ksp.co.il/shop/items/453883.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/453883",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -253,6 +253,15 @@
       "is_outlet": false,
       "missing_streak": 0
     },
+    "474222": {
+      "uin": 474222,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - סלמנס וגומי",
+      "price": 74,
+      "img": "https://ksp.co.il/shop/items/474222.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474222",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
     "474207": {
       "uin": 474207,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - מגניום ומיאוסטיק",
@@ -268,15 +277,6 @@
       "price": 74,
       "img": "https://ksp.co.il/shop/items/474221.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474221",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
-    "474222": {
-      "uin": 474222,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - סלמנס וגומי",
-      "price": 74,
-      "img": "https://ksp.co.il/shop/items/474222.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474222",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -667,6 +667,15 @@
       "is_outlet": false,
       "missing_streak": 0
     },
+    "486651": {
+      "uin": 486651,
+      "title": "קלפי אספנות פוקימון Pokemon TCG 30th Celebration: Poster Collection - צפי משוער לתחילת אספקה - 30.10",
+      "price": 239,
+      "img": "https://ksp.co.il/shop/items/486651.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486651",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
     "474560": {
       "uin": 474560,
       "title": "קלפי אספנות פוקימון Mega Greninja ex - Pokemon TCG: Premium Collection",
@@ -745,6 +754,24 @@
       "price": 299,
       "img": "https://ksp.co.il/shop/items/486689.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486689",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "486697": {
+      "uin": 486697,
+      "title": "קלפי אספנות פוקימון Sylveon - Pokemon TCG 30th Celebration: ex Tin - צפי משוער לתחילת אספקה - 30.10",
+      "price": 299,
+      "img": "https://ksp.co.il/shop/items/486697.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486697",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "486700": {
+      "uin": 486700,
+      "title": "קלפי אספנות פוקימון Greninja - Pokemon TCG 30th Celebration: ex Tin - צפי משוער לתחילת אספקה - 30.10",
+      "price": 299,
+      "img": "https://ksp.co.il/shop/items/486700.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486700",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -943,15 +970,6 @@
       "price": 599,
       "img": "https://ksp.co.il/shop/items/486322.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486322",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
-    "390949": {
-      "uin": 390949,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Black Bolt - Elite Trainer Box",
-      "price": 599,
-      "img": "https://ksp.co.il/shop/items/390949.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/390949",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1330,6 +1348,24 @@
       "price": 1699,
       "img": "https://ksp.co.il/shop/items/415433.jpg?v=5",
       "url": "https://ksp.co.il/web/item/415433",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "486701": {
+      "uin": 486701,
+      "title": "קלפי אספנות פוקימון Pokemon TCG 30th Celebration: ex Tin Case - מארז סגור שכולל: 3 יחידות Greninja ו-3 יחידות Sylveon (קייס סגור) - צפי משוער לתחילת אספקה - 30.10",
+      "price": 1749,
+      "img": "https://ksp.co.il/shop/items/486701.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486701",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "486695": {
+      "uin": 486695,
+      "title": "קלפי אספנות פוקימון Pokemon TCG 30th Celebration: ex Box Case - מארז סגור שכולל: 3 יחידות Greninja ו-3 יחידות Sylveon (קייס סגור) - צפי משוער לתחילת אספקה - 30.10",
+      "price": 1749,
+      "img": "https://ksp.co.il/shop/items/486695.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486695",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1773,6 +1809,15 @@
       "url": "https://ksp.co.il/web/item/395276",
       "is_outlet": false,
       "missing_streak": 0
+    },
+    "390949": {
+      "uin": 390949,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Black Bolt - Elite Trainer Box",
+      "price": 599,
+      "img": "https://ksp.co.il/shop/items/390949.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/390949",
+      "is_outlet": false,
+      "missing_streak": 0
     }
   },
   "all_time_seen_uins": [
@@ -2079,11 +2124,6 @@
     "431923": "2026-09-04T00:50:14.002767+00:00",
     "431945": "2026-09-04T01:07:39.852176+00:00",
     "431947": "2026-09-04T01:07:39.852176+00:00",
-    "486651": "2026-09-05T10:06:43.908641+00:00",
-    "486697": "2026-09-05T10:06:43.908641+00:00",
-    "486700": "2026-09-05T10:06:43.908641+00:00",
-    "486701": "2026-09-05T10:06:43.908641+00:00",
-    "486695": "2026-09-05T10:06:43.908641+00:00",
     "380042": "2026-09-06T18:57:46.012390+00:00",
     "395327": "2026-09-08T12:52:35.383158+00:00",
     "478955": "2026-09-10T19:31:43.266969+00:00",
@@ -2094,6 +2134,6 @@
     "474160": "2026-09-14T16:31:14.904819+00:00",
     "496565": "2026-09-14T18:41:38.609641+00:00"
   },
-  "last_checked": "2026-09-15T13:02:28.703519+00:00",
+  "last_checked": "2026-09-15T13:04:43.412992+00:00",
   "mute_until": null
 }
