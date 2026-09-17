@@ -271,21 +271,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "474207": {
-      "uin": 474207,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - מגניום ומיאוסטיק",
-      "price": 74,
-      "img": "https://ksp.co.il/shop/items/474207.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474207",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "474221": {
       "uin": 474221,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - גאלייד וגומי",
       "price": 74,
       "img": "https://ksp.co.il/shop/items/474221.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474221",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "474207": {
+      "uin": 474207,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Lumiose City Mini Tin - מגניום ומיאוסטיק",
+      "price": 74,
+      "img": "https://ksp.co.il/shop/items/474207.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474207",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -421,6 +421,15 @@
       "price": 119,
       "img": "https://ksp.co.il/shop/items/379297.jpg?v=5",
       "url": "https://ksp.co.il/web/item/379297",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "379305": {
+      "uin": 379305,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - גלסיאון",
+      "price": 119,
+      "img": "https://ksp.co.il/shop/items/379305.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/379305",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -757,6 +766,15 @@
       "is_outlet": false,
       "missing_streak": 0
     },
+    "486700": {
+      "uin": 486700,
+      "title": "קלפי אספנות פוקימון Greninja - Pokemon TCG 30th Celebration: ex Tin - צפי משוער לתחילת אספקה - 30.10",
+      "price": 299,
+      "img": "https://ksp.co.il/shop/items/486700.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486700",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
     "486689": {
       "uin": 486689,
       "title": "קלפי אספנות פוקימון Greninja - Pokemon TCG 30th Celebration: ex Box - צפי משוער לתחילת אספקה - 30.10",
@@ -772,15 +790,6 @@
       "price": 299,
       "img": "https://ksp.co.il/shop/items/486697.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486697",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
-    "486700": {
-      "uin": 486700,
-      "title": "קלפי אספנות פוקימון Greninja - Pokemon TCG 30th Celebration: ex Tin - צפי משוער לתחילת אספקה - 30.10",
-      "price": 299,
-      "img": "https://ksp.co.il/shop/items/486700.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486700",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -811,21 +820,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "431548": {
-      "uin": 431548,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Mega Symphonia - Booster Box (Japanese) - מארז 30 חפיסות",
-      "price": 349,
-      "img": "https://ksp.co.il/shop/items/431548.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/431548",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "481069": {
       "uin": 481069,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Ancient Roar - Booster Box (Japanese) - מארז 30 חפיסות",
       "price": 349,
       "img": "https://ksp.co.il/shop/items/481069.jpg?v=5",
       "url": "https://ksp.co.il/web/item/481069",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "431548": {
+      "uin": 431548,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Mega Symphonia - Booster Box (Japanese) - מארז 30 חפיסות",
+      "price": 349,
+      "img": "https://ksp.co.il/shop/items/431548.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/431548",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1801,15 +1810,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "379305": {
-      "uin": 379305,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - גלסיאון",
-      "price": 119,
-      "img": "https://ksp.co.il/shop/items/379305.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/379305",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "481091": {
       "uin": 481091,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Ninja Spinner - Booster Box (Japanese) - מארז 30 חפיסות",
@@ -2136,6 +2136,6 @@
     "477539": "2026-09-16T14:44:56.210356+00:00",
     "474160": "2026-09-17T08:54:57.427090+00:00"
   },
-  "last_checked": "2026-09-17T14:45:10.427547+00:00",
+  "last_checked": "2026-09-17T14:51:01.192272+00:00",
   "mute_until": null
 }
