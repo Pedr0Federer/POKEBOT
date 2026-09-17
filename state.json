@@ -118,12 +118,12 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "452562": {
-      "uin": 452562,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Booster Pack",
+    "389515": {
+      "uin": 389515,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Surging Sparks - Booster Pack - עשרה קלפים בחפיסה",
       "price": 39,
-      "img": "https://ksp.co.il/shop/items/452562.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/452562",
+      "img": "https://ksp.co.il/shop/items/389515.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/389515",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -136,12 +136,12 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "389515": {
-      "uin": 389515,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Surging Sparks - Booster Pack - עשרה קלפים בחפיסה",
+    "452562": {
+      "uin": 452562,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Booster Pack",
       "price": 39,
-      "img": "https://ksp.co.il/shop/items/389515.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/389515",
+      "img": "https://ksp.co.il/shop/items/452562.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/452562",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -496,21 +496,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "474160": {
-      "uin": 474160,
-      "title": "קלפי אספנות פוקימון Yuya Okita (JP Raging Bolt) - Pokemon TCG: 2025 World Championship Deck",
-      "price": 129,
-      "img": "https://ksp.co.il/shop/items/474160.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474160",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "486554": {
       "uin": 486554,
       "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together - Art Set",
       "price": 139,
       "img": "https://ksp.co.il/shop/items/486554.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486554",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "474160": {
+      "uin": 474160,
+      "title": "קלפי אספנות פוקימון Yuya Okita (JP Raging Bolt) - Pokemon TCG: 2025 World Championship Deck",
+      "price": 129,
+      "img": "https://ksp.co.il/shop/items/474160.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474160",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -721,21 +721,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "459598": {
-      "uin": 459598,
-      "title": "קלפי אספנות פוקימון Mega Feraligatr ex - Pokemon TCG ME: Ascended Heroes Box",
-      "price": 269,
-      "img": "https://ksp.co.il/shop/items/459598.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/459598",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "459602": {
       "uin": 459602,
       "title": "קלפי אספנות פוקימון Mega Emboar ex - Pokemon TCG ME: Ascended Heroes Box",
       "price": 269,
       "img": "https://ksp.co.il/shop/items/459602.jpg?v=5",
       "url": "https://ksp.co.il/web/item/459602",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "459598": {
+      "uin": 459598,
+      "title": "קלפי אספנות פוקימון Mega Feraligatr ex - Pokemon TCG ME: Ascended Heroes Box",
+      "price": 269,
+      "img": "https://ksp.co.il/shop/items/459598.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/459598",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -775,15 +775,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "486697": {
-      "uin": 486697,
-      "title": "קלפי אספנות פוקימון Sylveon - Pokemon TCG 30th Celebration: ex Tin - צפי משוער לתחילת אספקה - 30.10",
-      "price": 299,
-      "img": "https://ksp.co.il/shop/items/486697.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486697",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "486700": {
       "uin": 486700,
       "title": "קלפי אספנות פוקימון Greninja - Pokemon TCG 30th Celebration: ex Tin - צפי משוער לתחילת אספקה - 30.10",
@@ -799,6 +790,15 @@
       "price": 299,
       "img": "https://ksp.co.il/shop/items/486689.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486689",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "486697": {
+      "uin": 486697,
+      "title": "קלפי אספנות פוקימון Sylveon - Pokemon TCG 30th Celebration: ex Tin - צפי משוער לתחילת אספקה - 30.10",
+      "price": 299,
+      "img": "https://ksp.co.il/shop/items/486697.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486697",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1099,21 +1099,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "446039": {
-      "uin": 446039,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Perfect Order Booster Box - מארז 36 חפיסות",
-      "price": 849,
-      "img": "https://ksp.co.il/shop/items/446039.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/446039",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "415839": {
       "uin": 415839,
       "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Prismatic Evolutions - Premium Figure Collection",
       "price": 849,
       "img": "https://ksp.co.il/shop/items/415839.jpg?v=5",
       "url": "https://ksp.co.il/web/item/415839",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "446039": {
+      "uin": 446039,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Perfect Order Booster Box - מארז 36 חפיסות",
+      "price": 849,
+      "img": "https://ksp.co.il/shop/items/446039.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/446039",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -2144,6 +2144,6 @@
     "496565": "2026-09-14T18:41:38.609641+00:00",
     "477539": "2026-09-16T14:44:56.210356+00:00"
   },
-  "last_checked": "2026-09-17T03:48:09.903765+00:00",
+  "last_checked": "2026-09-17T03:53:54.385854+00:00",
   "mute_until": null
 }
