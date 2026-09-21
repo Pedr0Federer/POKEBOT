@@ -343,21 +343,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "459661": {
-      "uin": 459661,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Mega Evolution - Enhanced 2-Pack Blister",
-      "price": 99,
-      "img": "https://ksp.co.il/shop/items/459661.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/459661",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "472664": {
       "uin": 472664,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - 3-Pack Blister - צ'רמיליון",
       "price": 99,
       "img": "https://ksp.co.il/shop/items/472664.jpg?v=5",
       "url": "https://ksp.co.il/web/item/472664",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "459661": {
+      "uin": 459661,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Mega Evolution - Enhanced 2-Pack Blister",
+      "price": 99,
+      "img": "https://ksp.co.il/shop/items/459661.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/459661",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -412,6 +412,15 @@
       "price": 129,
       "img": "https://ksp.co.il/shop/items/474340.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474340",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "379297": {
+      "uin": 379297,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - פלריאון",
+      "price": 119,
+      "img": "https://ksp.co.il/shop/items/379297.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/379297",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1072,21 +1081,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "479420": {
-      "uin": 479420,
-      "title": "ערכת אספנות למשחק קלפי פוקימון Pokemon TCG: Trainer’s Toolkit (2021) TCG - מארז המכיל 6 Trainer’s Toolkit (2021) (קייס סגור)",
-      "price": 979,
-      "img": "https://ksp.co.il/shop/items/479420.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/479420",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "464226": {
       "uin": 464226,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME02 Mega Evolution: Phantasmal Flames - Booster Box - מארז 18 חפיסות",
       "price": 849,
       "img": "https://ksp.co.il/shop/items/464226.jpg?v=5",
       "url": "https://ksp.co.il/web/item/464226",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "479420": {
+      "uin": 479420,
+      "title": "ערכת אספנות למשחק קלפי פוקימון Pokemon TCG: Trainer’s Toolkit (2021) TCG - מארז המכיל 6 Trainer’s Toolkit (2021) (קייס סגור)",
+      "price": 979,
+      "img": "https://ksp.co.il/shop/items/479420.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/479420",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1774,15 +1783,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "379297": {
-      "uin": 379297,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Prismatic Evolutions Mini Tin - פלריאון",
-      "price": 119,
-      "img": "https://ksp.co.il/shop/items/379297.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/379297",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "486689": {
       "uin": 486689,
       "title": "קלפי אספנות פוקימון Greninja - Pokemon TCG 30th Celebration: ex Box - צפי משוער לתחילת אספקה - 30.10",
@@ -2112,6 +2112,6 @@
     "379299": "2026-09-19T15:42:16.582697+00:00",
     "486322": "2026-09-20T17:59:52.891843+00:00"
   },
-  "last_checked": "2026-09-21T10:40:17.114118+00:00",
+  "last_checked": "2026-09-21T10:46:06.132080+00:00",
   "mute_until": null
 }
