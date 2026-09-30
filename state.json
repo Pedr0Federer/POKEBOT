@@ -532,21 +532,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "422138": {
-      "uin": 422138,
-      "title": "קלפי אספנות Pokemon TCG: Mega Kangaskhan ex Box",
-      "price": 179,
-      "img": "https://ksp.co.il/shop/items/422138.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/422138",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "485686": {
       "uin": 485686,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Booster Bundle",
       "price": 179,
       "img": "https://ksp.co.il/shop/items/485686.jpg?v=5",
       "url": "https://ksp.co.il/web/item/485686",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "422138": {
+      "uin": 422138,
+      "title": "קלפי אספנות Pokemon TCG: Mega Kangaskhan ex Box",
+      "price": 179,
+      "img": "https://ksp.co.il/shop/items/422138.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/422138",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1216,6 +1216,15 @@
       "is_outlet": false,
       "missing_streak": 0
     },
+    "479458": {
+      "uin": 479458,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Armarouge EX Premium Collection Case - מארז המכיל 6 Armarouge EX Premium Collection (קייס סגור)",
+      "price": 1299,
+      "img": "https://ksp.co.il/shop/items/479458.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/479458",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
     "487838": {
       "uin": 487838,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME: First Partner Illustration Collection Series 3 Case - מארז המכיל 6 First Partner Illustration Collection Series 3 (קייס סגור)",
@@ -1231,15 +1240,6 @@
       "price": 1399,
       "img": "https://ksp.co.il/shop/items/398953.jpg?v=5",
       "url": "https://ksp.co.il/web/item/398953",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
-    "479458": {
-      "uin": 479458,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Armarouge EX Premium Collection Case - מארז המכיל 6 Armarouge EX Premium Collection (קייס סגור)",
-      "price": 1299,
-      "img": "https://ksp.co.il/shop/items/479458.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/479458",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -2102,6 +2102,6 @@
     "425660": "2026-09-30T17:29:00.450280+00:00",
     "401351": "2026-09-30T17:45:58.193734+00:00"
   },
-  "last_checked": "2026-09-30T21:05:03.475603+00:00",
+  "last_checked": "2026-09-30T21:10:40.478566+00:00",
   "mute_until": null
 }
