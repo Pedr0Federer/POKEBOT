@@ -145,21 +145,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "314561": {
-      "uin": 314561,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Twilight Masquerade Booster",
-      "price": 35,
-      "img": "https://ksp.co.il/shop/items/314561.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/314561",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "376131": {
       "uin": 376131,
       "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together Booster Pack - עשרה קלפים בחפיסה",
       "price": 35,
       "img": "https://ksp.co.il/shop/items/376131.jpg?v=5",
       "url": "https://ksp.co.il/web/item/376131",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "314561": {
+      "uin": 314561,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Twilight Masquerade Booster",
+      "price": 35,
+      "img": "https://ksp.co.il/shop/items/314561.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/314561",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -226,21 +226,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "452559": {
-      "uin": 452559,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME02 Mega Evolution: Phantasmal Flames - Booster Pack - עשרה קלפים בחפיסה",
-      "price": 49,
-      "img": "https://ksp.co.il/shop/items/452559.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/452559",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "383738": {
       "uin": 383738,
       "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Paldea Evolved Sleeved Booster Pack - עשרה קלפים בחפיסה",
       "price": 54,
       "img": "https://ksp.co.il/shop/items/383738.jpg?v=5",
       "url": "https://ksp.co.il/web/item/383738",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "452559": {
+      "uin": 452559,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME02 Mega Evolution: Phantasmal Flames - Booster Pack - עשרה קלפים בחפיסה",
+      "price": 49,
+      "img": "https://ksp.co.il/shop/items/452559.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/452559",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -901,21 +901,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "486715": {
-      "uin": 486715,
-      "title": "קלפי אספנות פוקימון Pokemon TCG 30th Celebration: Binder Collection - צפי משוער לתחילת אספקה - 30.10",
-      "price": 399,
-      "img": "https://ksp.co.il/shop/items/486715.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486715",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "481097": {
       "uin": 481097,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Abyss Eye - Booster Box (Japanese) - מארז 30 חפיסות",
       "price": 399,
       "img": "https://ksp.co.il/shop/items/481097.jpg?v=5",
       "url": "https://ksp.co.il/web/item/481097",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "486715": {
+      "uin": 486715,
+      "title": "קלפי אספנות פוקימון Pokemon TCG 30th Celebration: Binder Collection - צפי משוער לתחילת אספקה - 30.10",
+      "price": 399,
+      "img": "https://ksp.co.il/shop/items/486715.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486715",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1294,6 +1294,15 @@
       "price": 1299,
       "img": "https://ksp.co.il/shop/items/479458.jpg?v=5",
       "url": "https://ksp.co.il/web/item/479458",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "398953": {
+      "uin": 398953,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Cynthias Garchomp ex Premium Collection Case - מארז המכיל 6 Premium Collection Cynthias Garchomp ex (קייס סגור)",
+      "price": 1399,
+      "img": "https://ksp.co.il/shop/items/398953.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/398953",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1845,15 +1854,6 @@
       "url": "https://ksp.co.il/web/item/395276",
       "is_outlet": false,
       "missing_streak": 0
-    },
-    "398953": {
-      "uin": 398953,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Cynthias Garchomp ex Premium Collection Case - מארז המכיל 6 Premium Collection Cynthias Garchomp ex (קייס סגור)",
-      "price": 1399,
-      "img": "https://ksp.co.il/shop/items/398953.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/398953",
-      "is_outlet": false,
-      "missing_streak": 0
     }
   },
   "all_time_seen_uins": [
@@ -2206,6 +2206,6 @@
     "380990": "2026-10-06T12:03:28.410531+00:00",
     "380960": "2026-10-06T12:03:28.410531+00:00"
   },
-  "last_checked": "2026-10-06T15:08:46.670706+00:00",
+  "last_checked": "2026-10-06T15:14:25.725160+00:00",
   "mute_until": null
 }
