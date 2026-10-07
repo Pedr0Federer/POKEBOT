@@ -163,15 +163,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "474004": {
-      "uin": 474004,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising Single Pack Blister - טוקסל",
-      "price": 39,
-      "img": "https://ksp.co.il/shop/items/474004.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474004",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "278260": {
       "uin": 278260,
       "title": "מארז קלפי אספנות פוקימון Pokemon TCG: ex Battle Deck (Tinkaton ex)",
@@ -196,6 +187,15 @@
       "price": 39,
       "img": "https://ksp.co.il/shop/items/186593.jpg?v=5",
       "url": "https://ksp.co.il/web/item/186593",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "474004": {
+      "uin": 474004,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising Single Pack Blister - טוקסל",
+      "price": 39,
+      "img": "https://ksp.co.il/shop/items/474004.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474004",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -361,15 +361,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "417311": {
-      "uin": 417311,
-      "title": "קלפי אספנות פוקימון Ultra Ball - Pokemon TCG: Poke Ball Tin Q4 2024",
-      "price": 99,
-      "img": "https://ksp.co.il/shop/items/417311.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/417311",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "417314": {
       "uin": 417314,
       "title": "קלפי אספנות פוקימון Great Ball - Pokemon TCG: Poke Ball Tin Q4 2024",
@@ -379,12 +370,12 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "459661": {
-      "uin": 459661,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Mega Evolution - Enhanced 2-Pack Blister",
+    "417311": {
+      "uin": 417311,
+      "title": "קלפי אספנות פוקימון Ultra Ball - Pokemon TCG: Poke Ball Tin Q4 2024",
       "price": 99,
-      "img": "https://ksp.co.il/shop/items/459661.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/459661",
+      "img": "https://ksp.co.il/shop/items/417311.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/417311",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -397,12 +388,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "486561": {
-      "uin": 486561,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Art Set",
+    "459661": {
+      "uin": 459661,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME: Mega Evolution - Enhanced 2-Pack Blister",
       "price": 99,
-      "img": "https://ksp.co.il/shop/items/486561.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486561",
+      "img": "https://ksp.co.il/shop/items/459661.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/459661",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "417312": {
+      "uin": 417312,
+      "title": "קלפי אספנות פוקימון Poke Ball - Pokemon TCG: Poke Ball Tin Q4 2024",
+      "price": 99,
+      "img": "https://ksp.co.il/shop/items/417312.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/417312",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -415,12 +415,12 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "417312": {
-      "uin": 417312,
-      "title": "קלפי אספנות פוקימון Poke Ball - Pokemon TCG: Poke Ball Tin Q4 2024",
+    "486561": {
+      "uin": 486561,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Art Set",
       "price": 99,
-      "img": "https://ksp.co.il/shop/items/417312.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/417312",
+      "img": "https://ksp.co.il/shop/items/486561.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486561",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -802,21 +802,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "478968": {
-      "uin": 478968,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Future Flash - Booster Box (Japanese) - מארז 30 חפיסות",
-      "price": 339,
-      "img": "https://ksp.co.il/shop/items/478968.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/478968",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "422126": {
       "uin": 422126,
       "title": "קלפי אספנות Mega Venusaur ex - Pokemon TCG: Premium Collection",
       "price": 339,
       "img": "https://ksp.co.il/shop/items/422126.jpg?v=5",
       "url": "https://ksp.co.il/web/item/422126",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "478968": {
+      "uin": 478968,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Future Flash - Booster Box (Japanese) - מארז 30 חפיסות",
+      "price": 339,
+      "img": "https://ksp.co.il/shop/items/478968.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/478968",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -874,21 +874,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "486313": {
-      "uin": 486313,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Mask of Change - Booster Box (Japanese) - מארז 30 חפיסות",
-      "price": 399,
-      "img": "https://ksp.co.il/shop/items/486313.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486313",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "481091": {
       "uin": 481091,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Ninja Spinner - Booster Box (Japanese) - מארז 30 חפיסות",
       "price": 399,
       "img": "https://ksp.co.il/shop/items/481091.jpg?v=5",
       "url": "https://ksp.co.il/web/item/481091",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "486313": {
+      "uin": 486313,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Mask of Change - Booster Box (Japanese) - מארז 30 חפיסות",
+      "price": 399,
+      "img": "https://ksp.co.il/shop/items/486313.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486313",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1153,21 +1153,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "501119": {
-      "uin": 501119,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME06: Delta Reign - Booster Box - מארז 36 חפיסות - תאריך אספקה משוער - 19.11",
-      "price": 999,
-      "img": "https://ksp.co.il/shop/items/501119.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/501119",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "381004": {
       "uin": 381004,
       "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Hidden Fates Tin - צ'ריזארד GX",
       "price": 849,
       "img": "https://ksp.co.il/shop/items/381004.jpg?v=5",
       "url": "https://ksp.co.il/web/item/381004",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "501119": {
+      "uin": 501119,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME06: Delta Reign - Booster Box - מארז 36 חפיסות - תאריך אספקה משוער - 19.11",
+      "price": 999,
+      "img": "https://ksp.co.il/shop/items/501119.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/501119",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1684,21 +1684,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "465075": {
-      "uin": 465075,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Booster Box Case - מארז 6 קופסאות Chaos Rising Booster Box (קייס סגור)",
-      "price": 5249,
-      "img": "https://ksp.co.il/shop/items/465075.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/465075",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "395469": {
       "uin": 395469,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Blue Sky Stream - Booster Box (Japanese) - מארז 30 חפיסות",
       "price": 4999,
       "img": "https://ksp.co.il/shop/items/395469.jpg?v=5",
       "url": "https://ksp.co.il/web/item/395469",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "465075": {
+      "uin": 465075,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Booster Box Case - מארז 6 קופסאות Chaos Rising Booster Box (קייס סגור)",
+      "price": 5249,
+      "img": "https://ksp.co.il/shop/items/465075.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/465075",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -2198,6 +2198,6 @@
     "380960": "2026-10-06T12:03:28.410531+00:00",
     "455909": "2026-10-06T19:11:57.465399+00:00"
   },
-  "last_checked": "2026-10-07T00:26:07.944972+00:00",
+  "last_checked": "2026-10-07T00:31:42.487300+00:00",
   "mute_until": null
 }
