@@ -199,21 +199,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "389515": {
-      "uin": 389515,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Surging Sparks - Booster Pack - עשרה קלפים בחפיסה",
-      "price": 39,
-      "img": "https://ksp.co.il/shop/items/389515.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/389515",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "278243": {
       "uin": 278243,
       "title": "מארז קלפי אספנות פוקימון Pokemon TCG: ex Battle Deck (Chien-Pao ex)",
       "price": 89,
       "img": "https://ksp.co.il/shop/items/278243.jpg?v=5",
       "url": "https://ksp.co.il/web/item/278243",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "389515": {
+      "uin": 389515,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet: Surging Sparks - Booster Pack - עשרה קלפים בחפיסה",
+      "price": 39,
+      "img": "https://ksp.co.il/shop/items/389515.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/389515",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -838,21 +838,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "481087": {
-      "uin": 481087,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Night Wanderer - Booster Box (Japanese) - מארז 30 חפיסות",
-      "price": 349,
-      "img": "https://ksp.co.il/shop/items/481087.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/481087",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "431548": {
       "uin": 431548,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Mega Symphonia - Booster Box (Japanese) - מארז 30 חפיסות",
       "price": 349,
       "img": "https://ksp.co.il/shop/items/431548.jpg?v=5",
       "url": "https://ksp.co.il/web/item/431548",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "481087": {
+      "uin": 481087,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Night Wanderer - Booster Box (Japanese) - מארז 30 חפיסות",
+      "price": 349,
+      "img": "https://ksp.co.il/shop/items/481087.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/481087",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1063,21 +1063,30 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "381006": {
-      "uin": 381006,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Hidden Fates Tin - גרידוס GX",
-      "price": 799,
-      "img": "https://ksp.co.il/shop/items/381006.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/381006",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "362716": {
       "uin": 362716,
       "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together Booster Box - מארז 36 חפיסות",
       "price": 869,
       "img": "https://ksp.co.il/shop/items/362716.jpg?v=5",
       "url": "https://ksp.co.il/web/item/362716",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "380997": {
+      "uin": 380997,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Hidden Fates Tin - ראיצ'ו GX",
+      "price": 799,
+      "img": "https://ksp.co.il/shop/items/380997.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/380997",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "381006": {
+      "uin": 381006,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Hidden Fates Tin - גרידוס GX",
+      "price": 799,
+      "img": "https://ksp.co.il/shop/items/381006.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/381006",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1144,21 +1153,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "381004": {
-      "uin": 381004,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Hidden Fates Tin - צ'ריזארד GX",
-      "price": 849,
-      "img": "https://ksp.co.il/shop/items/381004.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/381004",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "501119": {
       "uin": 501119,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME06: Delta Reign - Booster Box - מארז 36 חפיסות - תאריך אספקה משוער - 19.11",
       "price": 999,
       "img": "https://ksp.co.il/shop/items/501119.jpg?v=5",
       "url": "https://ksp.co.il/web/item/501119",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "381004": {
+      "uin": 381004,
+      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Hidden Fates Tin - צ'ריזארד GX",
+      "price": 849,
+      "img": "https://ksp.co.il/shop/items/381004.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/381004",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1315,21 +1324,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "380042": {
-      "uin": 380042,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Sword & Shield - Evolving Skies Build and Battle Box",
-      "price": 1199,
-      "img": "https://ksp.co.il/shop/items/380042.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/380042",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "395293": {
       "uin": 395293,
       "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Surging Sparks Booster Box - מארז 36 חפיסות",
       "price": 1199,
       "img": "https://ksp.co.il/shop/items/395293.jpg?v=5",
       "url": "https://ksp.co.il/web/item/395293",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "380042": {
+      "uin": 380042,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Sword & Shield - Evolving Skies Build and Battle Box",
+      "price": 1199,
+      "img": "https://ksp.co.il/shop/items/380042.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/380042",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1666,21 +1675,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "465075": {
-      "uin": 465075,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Booster Box Case - מארז 6 קופסאות Chaos Rising Booster Box (קייס סגור)",
-      "price": 5249,
-      "img": "https://ksp.co.il/shop/items/465075.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/465075",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "474031": {
       "uin": 474031,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Booster Bundle Case - מארז המכיל 25 Chaos Rising - Booster Bundle (קייס סגור)",
       "price": 4699,
       "img": "https://ksp.co.il/shop/items/474031.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474031",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "465075": {
+      "uin": 465075,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Booster Box Case - מארז 6 קופסאות Chaos Rising Booster Box (קייס סגור)",
+      "price": 5249,
+      "img": "https://ksp.co.il/shop/items/465075.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/465075",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1834,15 +1843,6 @@
       "price": 62400,
       "img": "https://ksp.co.il/shop/items/395276.jpg?v=5",
       "url": "https://ksp.co.il/web/item/395276",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
-    "380997": {
-      "uin": 380997,
-      "title": "מארז קלפי אספנות פוקימון Pokemon TCG: Hidden Fates Tin - ראיצ'ו GX",
-      "price": 799,
-      "img": "https://ksp.co.il/shop/items/380997.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/380997",
       "is_outlet": false,
       "missing_streak": 0
     }
@@ -2198,6 +2198,6 @@
     "380960": "2026-10-06T12:03:28.410531+00:00",
     "455909": "2026-10-06T19:11:57.465399+00:00"
   },
-  "last_checked": "2026-10-07T01:55:36.749404+00:00",
+  "last_checked": "2026-10-07T02:01:13.002526+00:00",
   "mute_until": null
 }
