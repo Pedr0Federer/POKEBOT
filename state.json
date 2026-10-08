@@ -73,21 +73,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "474083": {
-      "uin": 474083,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising Premium Checklane Blister - פאומוט",
-      "price": 44,
-      "img": "https://ksp.co.il/shop/items/474083.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/474083",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "389509": {
       "uin": 389509,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Stellar Crown Booster Pack - עשרה קלפים בחפיסה",
       "price": 34,
       "img": "https://ksp.co.il/shop/items/389509.jpg?v=5",
       "url": "https://ksp.co.il/web/item/389509",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "474083": {
+      "uin": 474083,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising Premium Checklane Blister - פאומוט",
+      "price": 44,
+      "img": "https://ksp.co.il/shop/items/474083.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/474083",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -754,6 +754,15 @@
       "price": 299,
       "img": "https://ksp.co.il/shop/items/486689.jpg?v=5",
       "url": "https://ksp.co.il/web/item/486689",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "446055": {
+      "uin": 446055,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME03: Perfect Order - Elite Trainer Box",
+      "price": 299,
+      "img": "https://ksp.co.il/shop/items/446055.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/446055",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1441,12 +1450,12 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "395483": {
-      "uin": 395483,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Lost Abyss - Booster Box (Japanese) - מארז 30 חפיסות",
-      "price": 1899,
-      "img": "https://ksp.co.il/shop/items/395483.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/395483",
+    "384641": {
+      "uin": 384641,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Destined Rivals Booster Box - מארז 36 חפיסות",
+      "price": 2399,
+      "img": "https://ksp.co.il/shop/items/384641.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/384641",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1459,12 +1468,12 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "384641": {
-      "uin": 384641,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Destined Rivals Booster Box - מארז 36 חפיסות",
-      "price": 2399,
-      "img": "https://ksp.co.il/shop/items/384641.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/384641",
+    "395483": {
+      "uin": 395483,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Lost Abyss - Booster Box (Japanese) - מארז 30 חפיסות",
+      "price": 1899,
+      "img": "https://ksp.co.il/shop/items/395483.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/395483",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1639,21 +1648,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "395469": {
-      "uin": 395469,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: Blue Sky Stream - Booster Box (Japanese) - מארז 30 חפיסות",
-      "price": 4999,
-      "img": "https://ksp.co.il/shop/items/395469.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/395469",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "465075": {
       "uin": 465075,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Booster Box Case - מארז 6 קופסאות Chaos Rising Booster Box (קייס סגור)",
       "price": 5249,
       "img": "https://ksp.co.il/shop/items/465075.jpg?v=5",
       "url": "https://ksp.co.il/web/item/465075",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "395469": {
+      "uin": 395469,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: Blue Sky Stream - Booster Box (Japanese) - מארז 30 חפיסות",
+      "price": 4999,
+      "img": "https://ksp.co.il/shop/items/395469.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/395469",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1825,15 +1834,6 @@
       "price": 869,
       "img": "https://ksp.co.il/shop/items/362716.jpg?v=5",
       "url": "https://ksp.co.il/web/item/362716",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
-    "446055": {
-      "uin": 446055,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME03: Perfect Order - Elite Trainer Box",
-      "price": 299,
-      "img": "https://ksp.co.il/shop/items/446055.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/446055",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -2198,6 +2198,6 @@
     "380960": "2026-10-06T12:03:28.410531+00:00",
     "431548": "2026-10-07T10:42:54.300264+00:00"
   },
-  "last_checked": "2026-10-08T00:20:46.234873+00:00",
+  "last_checked": "2026-10-08T00:26:20.775499+00:00",
   "mute_until": null
 }
