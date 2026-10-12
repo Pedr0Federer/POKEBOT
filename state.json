@@ -28,21 +28,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "500935": {
-      "uin": 500935,
-      "title": "קלפי אספנות פוקימון Pokemon TCG ME04 Chaos Rising Sleeved Booster Pack",
-      "price": 27,
-      "img": "https://ksp.co.il/shop/items/500935.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/500935",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "485725": {
       "uin": 485725,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME05: Pitch Black - Sleeved Booster Pack",
       "price": 34,
       "img": "https://ksp.co.il/shop/items/485725.jpg?v=5",
       "url": "https://ksp.co.il/web/item/485725",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "500935": {
+      "uin": 500935,
+      "title": "קלפי אספנות פוקימון Pokemon TCG ME04 Chaos Rising Sleeved Booster Pack",
+      "price": 27,
+      "img": "https://ksp.co.il/shop/items/500935.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/500935",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -82,15 +82,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "485989": {
-      "uin": 485989,
-      "title": "קלפי אספנות פוקימון Slowpoke - Pokemon TCG ME05: Pitch Black - Single Pack Blister",
-      "price": 34,
-      "img": "https://ksp.co.il/shop/items/485989.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/485989",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "389509": {
       "uin": 389509,
       "title": "קלפי אספנות פוקימון Pokemon TCG: Scarlet & Violet Stellar Crown Booster Pack - עשרה קלפים בחפיסה",
@@ -106,6 +97,15 @@
       "price": 44,
       "img": "https://ksp.co.il/shop/items/474083.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474083",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "485989": {
+      "uin": 485989,
+      "title": "קלפי אספנות פוקימון Slowpoke - Pokemon TCG ME05: Pitch Black - Single Pack Blister",
+      "price": 34,
+      "img": "https://ksp.co.il/shop/items/485989.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/485989",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -406,15 +406,6 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "446385": {
-      "uin": 446385,
-      "title": "קלפי אספנות פוקימון Chikorita - Pokemon TCG ME03: Perfect Order 3 Pack Blister",
-      "price": 99,
-      "img": "https://ksp.co.il/shop/items/446385.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/446385",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "486561": {
       "uin": 486561,
       "title": "קלפי אספנות פוקימון Pokemon TCG ME04: Chaos Rising - Art Set",
@@ -424,21 +415,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
+    "446385": {
+      "uin": 446385,
+      "title": "קלפי אספנות פוקימון Chikorita - Pokemon TCG ME03: Perfect Order 3 Pack Blister",
+      "price": 99,
+      "img": "https://ksp.co.il/shop/items/446385.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/446385",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
     "417313": {
       "uin": 417313,
       "title": "קלפי אספנות פוקימון Premier Ball - Pokemon TCG: Poke Ball Tin Q4 2024",
       "price": 99,
       "img": "https://ksp.co.il/shop/items/417313.jpg?v=5",
       "url": "https://ksp.co.il/web/item/417313",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
-    "417290": {
-      "uin": 417290,
-      "title": "קלפי אספנות פוקימון Moon Ball - Pokemon TCG: Poke Ball Tin Q4 2024",
-      "price": 99,
-      "img": "https://ksp.co.il/shop/items/417290.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/417290",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -487,21 +478,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "486554": {
-      "uin": 486554,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together - Art Set",
-      "price": 139,
-      "img": "https://ksp.co.il/shop/items/486554.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/486554",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "474177": {
       "uin": 474177,
       "title": "קלפי אספנות פוקימון Riley McKay (Flutter Devo Gardevoir) - Pokemon TCG: 2025 World Championship Deck",
       "price": 129,
       "img": "https://ksp.co.il/shop/items/474177.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474177",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "486554": {
+      "uin": 486554,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet Journey Together - Art Set",
+      "price": 139,
+      "img": "https://ksp.co.il/shop/items/486554.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/486554",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -523,6 +514,15 @@
       "is_outlet": false,
       "missing_streak": 0
     },
+    "382849": {
+      "uin": 382849,
+      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet - Journey Together Build and Battle",
+      "price": 149,
+      "img": "https://ksp.co.il/shop/items/382849.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/382849",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
     "187606": {
       "uin": 187606,
       "title": "ערכת אספנות למשחק קלפי פוקימון Pokemon TCG: Trainer’s Toolkit (2021) TCG",
@@ -538,15 +538,6 @@
       "price": 139,
       "img": "https://ksp.co.il/shop/items/474328.jpg?v=5",
       "url": "https://ksp.co.il/web/item/474328",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
-    "382849": {
-      "uin": 382849,
-      "title": "קלפי אספנות פוקימון Pokemon TCG Scarlet & Violet - Journey Together Build and Battle",
-      "price": 149,
-      "img": "https://ksp.co.il/shop/items/382849.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/382849",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1216,21 +1207,21 @@
       "is_outlet": false,
       "missing_streak": 0
     },
-    "416614": {
-      "uin": 416614,
-      "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Booster Box",
-      "price": 1199,
-      "img": "https://ksp.co.il/shop/items/416614.jpg?v=5",
-      "url": "https://ksp.co.il/web/item/416614",
-      "is_outlet": false,
-      "missing_streak": 0
-    },
     "380527": {
       "uin": 380527,
       "title": "קלפי אספנות פוקימון Pokemon TCG Sun & Moon - Celectial Storm Build and Battle Box",
       "price": 1099,
       "img": "https://ksp.co.il/shop/items/380527.jpg?v=5",
       "url": "https://ksp.co.il/web/item/380527",
+      "is_outlet": false,
+      "missing_streak": 0
+    },
+    "416614": {
+      "uin": 416614,
+      "title": "קלפי אספנות פוקימון Pokemon TCG: ME01 Mega Evolution Booster Box",
+      "price": 1199,
+      "img": "https://ksp.co.il/shop/items/416614.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/416614",
       "is_outlet": false,
       "missing_streak": 0
     },
@@ -1863,6 +1854,15 @@
       "url": "https://ksp.co.il/web/item/395276",
       "is_outlet": false,
       "missing_streak": 0
+    },
+    "417290": {
+      "uin": 417290,
+      "title": "קלפי אספנות פוקימון Moon Ball - Pokemon TCG: Poke Ball Tin Q4 2024",
+      "price": 99,
+      "img": "https://ksp.co.il/shop/items/417290.jpg?v=5",
+      "url": "https://ksp.co.il/web/item/417290",
+      "is_outlet": false,
+      "missing_streak": 0
     }
   },
   "all_time_seen_uins": [
@@ -2226,6 +2226,6 @@
     "416650": "2026-10-09T20:31:54.168922+00:00",
     "481114": "2026-10-10T12:29:14.533639+00:00"
   },
-  "last_checked": "2026-10-12T12:49:00.571049+00:00",
+  "last_checked": "2026-10-12T12:54:42.778338+00:00",
   "mute_until": null
 }
